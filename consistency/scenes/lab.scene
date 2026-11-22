@@ -1,0 +1,32 @@
+# lab.scene: three spatially disjoint test blocks, each exercising one
+# diff class. Blocks occupy separate screen thirds so none can occlude
+# another; per-block provenance lives in labels/lab_labels.json.
+# Camera looks down +z; light fixed so both renderers share shading.
+fovx 60
+light 1.5 2.0 0.5
+ambient 0.15
+
+# === occlusion block (left third) ===
+# Two overlapping triangles with different depth slopes whose surfaces
+# cross over a broad interior footprint. The depth-crossing line is placed
+# by float32 perspective interpolation (raster) vs float64
+# Moller-Trumbore (tracer). The winner flips across a wide 2D band whose
+# pixels have no local id coexistence -> occlusion class, scaling ~ O(s^2).
+tri -1.50 -0.90 3.90  -0.45 -0.90 4.10  -0.975 0.90 4.00000  0.85 0.30 0.15
+tri -1.50 -0.90 4.10  -0.45 -0.90 3.90  -0.975 0.90 3.99999  0.20 0.45 0.85
+
+# === boundary block (middle third) ===
+# Two long triangles overlapping only in a thin vertical strip, with depth
+# planes that cross inside that strip. Disputed pixels form a roughly
+# one-pixel-wide line where both ids coexist locally -> boundary class,
+# scaling ~ O(s). The narrow overlap keeps interior (occlusion-type)
+# disagreement negligible.
+tri -0.40 -0.90 3.00000   0.00 -0.90 3.00000   0.00 0.90 3.00000  0.90 0.75 0.20
+tri  0.00 -0.90 3.00003   0.40 -0.90 3.00003  -0.02 0.90 2.99997  0.25 0.65 0.85
+
+# === precision block (right third) ===
+# One isolated flat triangle, no overlap and no shared edge. Both
+# renderers emit the same primitive id on every covered pixel; the only
+# residual delta is the float32 edge/interpolation path vs float64
+# intersection -> precision class, scaling ~ O(s^2).
+tri 0.45 -0.40 5.50  1.50 -0.40 5.50  0.975 0.45 5.50   0.55 0.55 0.55

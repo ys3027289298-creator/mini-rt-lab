@@ -1,0 +1,13 @@
+# clean.scene: well-separated, non-overlapping triangles.
+# Same camera/geometry through both renderers should produce no
+# explainable differences beyond float32 quantization noise.
+fovx 60
+light 1.5 2.0 0.5
+ambient 0.15
+
+# red triangle, left, depth 3
+tri -1.35 -0.9 3.0  -0.35 -0.9 3.0  -0.85  0.9 3.0   0.85 0.15 0.12
+# green triangle, right, depth 4
+tri  0.35 -0.9 4.0   1.35 -0.9 4.0   0.85  0.9 4.0   0.15 0.75 0.25
+# blue small triangle, upper center, depth 2.5
+tri -0.25  0.25 2.5   0.25  0.25 2.5   0.0   0.85 2.5  0.2  0.35 0.9

@@ -1,0 +1,5 @@
+/raster
+/tracer
+/out/
+__pycache__/
+*.pyc
