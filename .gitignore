@@ -1,0 +1,8 @@
+# build outputs (each module has `make clean`)
+bvh/bvh
+sample/sample
+material/material
+onb/onb
+onb/out/
+__pycache__/
+*.pyc
