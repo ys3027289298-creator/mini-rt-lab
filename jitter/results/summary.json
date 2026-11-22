@@ -1,0 +1,356 @@
+{
+  "gaussian_sigma1.5": {
+    "name": "gaussian_sigma1.5",
+    "moments": {
+      "E": 0.9999999999999997,
+      "m2": 2.2499999999999996,
+      "m4": 15.187499999999998,
+      "m2_B": 1.7490570477551624,
+      "m4_B": 7.666457590013458,
+      "A0": 0.03622481494192768
+    },
+    "c2": 0.41603803183677507,
+    "c4": -0.0016157242225213074,
+    "mse_a0": 0.03622481494192768,
+    "mse_afull": 0.13681654967725743,
+    "exhaustive": {
+      "a_star": 0.0,
+      "grid_step": 0.000125,
+      "mse_star": 0.03622481494192768
+    },
+    "exact_root": {
+      "a_star": 0.0,
+      "status": "boundary:a=0.0;n_stationary=1",
+      "delta": 0.0,
+      "kappa_at_star": 0.8320760631074647,
+      "kappa_min_interval": 0.8320760625941764,
+      "L": 8.320760636735497e-13,
+      "d_measured": 0.0,
+      "d_upper_convex": Infinity,
+      "d_lower_lip": 0.0,
+      "within_one_gridstep": true,
+      "grid_uncertainty": 0.000125
+    },
+    "envelope": {
+      "a_star": 0.281679945163145,
+      "status": "sat:envelope_too_loose_use_exact_root",
+      "delta": 0.032853206126947296,
+      "kappa_at_star": 0.8320760631074647,
+      "kappa_min_interval": 0.7853599453856719,
+      "L": 0.2314024282291226,
+      "d_measured": 0.281679945163145,
+      "d_upper_convex": 0.28937242622082043,
+      "d_lower_lip": 0.1419743361310702,
+      "within_one_gridstep": false,
+      "grid_uncertainty": 0.000125
+    },
+    "quartic": {
+      "a_star": 0.0,
+      "status": "c2>=0:no_interior_minimum_a*=0",
+      "delta": 0.0,
+      "kappa_at_star": 0.8320760631074647,
+      "kappa_min_interval": 0.8320760625941764,
+      "L": 8.320760636735497e-13,
+      "d_measured": 0.0,
+      "d_upper_convex": Infinity,
+      "d_lower_lip": 0.0,
+      "within_one_gridstep": true,
+      "grid_uncertainty": 0.000125
+    }
+  },
+  "gaussian_sigma2.0": {
+    "name": "gaussian_sigma2.0",
+    "moments": {
+      "E": 1.0,
+      "m2": 4.0,
+      "m4": 48.0,
+      "m2_B": 2.075154959615977,
+      "m4_B": 10.49297736633994,
+      "A0": 0.11622998345924389
+    },
+    "c2": 0.05010330641065123,
+    "c4": 0.30015605852577915,
+    "mse_a0": 0.11622998345924389,
+    "mse_afull": 0.17395137369226915,
+    "exhaustive": {
+      "a_star": 0.0,
+      "grid_step": 0.000125,
+      "mse_star": 0.11622998345924389
+    },
+    "exact_root": {
+      "a_star": 0.0,
+      "status": "boundary:a=0.0;n_stationary=1",
+      "delta": 0.0,
+      "kappa_at_star": 0.10020666055190401,
+      "kappa_min_interval": 0.10020680486665241,
+      "L": 1.0020661282130262e-13,
+      "d_measured": 0.0,
+      "d_upper_convex": Infinity,
+      "d_lower_lip": 0.0,
+      "within_one_gridstep": true,
+      "grid_uncertainty": 0.000125
+    },
+    "envelope": {
+      "a_star": 0.3612204157691009,
+      "status": "interior",
+      "delta": 0.02208388969992041,
+      "kappa_at_star": 0.10020666055190401,
+      "kappa_min_interval": 0.10022106825585209,
+      "L": 0.18568102911176199,
+      "d_measured": 0.3612204157691009,
+      "d_upper_convex": 0.663980058256431,
+      "d_lower_lip": 0.11893455031762047,
+      "within_one_gridstep": false,
+      "grid_uncertainty": 0.000125
+    },
+    "quartic": {
+      "a_star": 0.0,
+      "status": "c2>=0:no_interior_minimum_a*=0",
+      "delta": 0.0,
+      "kappa_at_star": 0.10020666055190401,
+      "kappa_min_interval": 0.10020680486665241,
+      "L": 1.0020661282130262e-13,
+      "d_measured": 0.0,
+      "d_upper_convex": Infinity,
+      "d_lower_lip": 0.0,
+      "within_one_gridstep": true,
+      "grid_uncertainty": 0.000125
+    }
+  },
+  "gaussian_sigma2.5": {
+    "name": "gaussian_sigma2.5",
+    "moments": {
+      "E": 1.0,
+      "m2": 6.249999999999999,
+      "m4": 117.1875,
+      "m2_B": 2.0991898530311395,
+      "m4_B": 11.278039113529536,
+      "A0": 0.20888510239816627
+    },
+    "c2": -0.6838734313125734,
+    "c4": 1.0514602419215657,
+    "mse_a0": 0.20888510239816627,
+    "mse_afull": 0.18724155293142802,
+    "exhaustive": {
+      "a_star": 0.36175,
+      "grid_step": 0.000125,
+      "mse_star": 0.17178808523985029
+    },
+    "exact_root": {
+      "a_star": 0.3617334661478753,
+      "status": "interior_convex:n_stationary=2:M2=1.546e+00",
+      "delta": 0.0,
+      "kappa_at_star": 1.5465384599630538,
+      "kappa_min_interval": 1.546477437065208,
+      "L": 2.556973705925003e-05,
+      "d_measured": 1.6533852124689385e-05,
+      "d_upper_convex": Infinity,
+      "d_lower_lip": 0.0,
+      "within_one_gridstep": true,
+      "grid_uncertainty": 0.000125
+    },
+    "envelope": {
+      "a_star": 0.4170319363549464,
+      "status": "interior",
+      "delta": 0.0024431041519170638,
+      "kappa_at_star": 1.5465384599630538,
+      "kappa_min_interval": 1.5465384599630538,
+      "L": 0.08933091559876993,
+      "d_measured": 0.05528193635494638,
+      "d_upper_convex": 0.05633396989953985,
+      "d_lower_lip": 0.027348920981514094,
+      "within_one_gridstep": false,
+      "grid_uncertainty": 0.000125
+    },
+    "quartic": {
+      "a_star": 0.5702646356620643,
+      "status": "interior",
+      "delta": 0.034494470413785006,
+      "kappa_at_star": 1.5465384599630538,
+      "kappa_min_interval": 1.1624413298058633,
+      "L": 0.3160407950426471,
+      "d_measured": 0.2085146356620643,
+      "d_upper_convex": 0.24374010768532092,
+      "d_lower_lip": 0.10914562599151247,
+      "within_one_gridstep": false,
+      "grid_uncertainty": 0.000125
+    }
+  },
+  "gaussian_sigma4.0": {
+    "name": "gaussian_sigma4.0",
+    "moments": {
+      "E": 1.0,
+      "m2": 16.000000000000004,
+      "m4": 768.0000000000001,
+      "m2_B": 1.7189715652801487,
+      "m4_B": 9.816001291048869,
+      "A0": 0.43222016289502063
+    },
+    "c2": -4.187352289813235,
+    "c4": 8.315199971310026,
+    "mse_a0": 0.43222016289502063,
+    "mse_afull": 0.1720352088739529,
+    "exhaustive": {
+      "a_star": 0.488375,
+      "grid_step": 0.000125,
+      "mse_star": 0.1718664519671868
+    },
+    "exact_root": {
+      "a_star": 0.48831806487939927,
+      "status": "interior_convex:n_stationary=2:M2=2.519e+00",
+      "delta": 0.0,
+      "kappa_at_star": 2.5178919699167523,
+      "kappa_min_interval": 2.5178919699167523,
+      "L": 0.0001433753608530708,
+      "d_measured": 5.69351206007318e-05,
+      "d_upper_convex": Infinity,
+      "d_lower_lip": 0.0,
+      "within_one_gridstep": true,
+      "grid_uncertainty": 0.000125
+    },
+    "envelope": {
+      "a_star": 0.5257925881985556,
+      "status": "boundary:full_jitter",
+      "delta": 0.00016875690676609878,
+      "kappa_at_star": 2.5178919699167523,
+      "kappa_min_interval": 2.382973676856859,
+      "L": 0.028628645094052496,
+      "d_measured": 0.011624999999999996,
+      "d_upper_convex": 0.012026073942472492,
+      "d_lower_lip": 0.005894687164261136,
+      "within_one_gridstep": false,
+      "grid_uncertainty": 0.000125
+    },
+    "quartic": {
+      "a_star": 0.5017858419560247,
+      "status": "interior",
+      "delta": 0.0002236721042868095,
+      "kappa_at_star": 2.5178919699167523,
+      "kappa_min_interval": 2.362352546040891,
+      "L": 0.032865841432606735,
+      "d_measured": 0.01341084195602471,
+      "d_upper_convex": 0.013885954363132719,
+      "d_lower_lip": 0.006805610157447567,
+      "within_one_gridstep": false,
+      "grid_uncertainty": 0.000125
+    }
+  },
+  "lorentz_p2_w0=2": {
+    "name": "lorentz_p2_w0=2",
+    "moments": {
+      "E": 1.0,
+      "m2": 3.8987185636808763,
+      "m4": 976.8136718715,
+      "m2_B": 1.4027746084644919,
+      "m4_B": 5.937966746640149,
+      "A0": 0.07250354554214541
+    },
+    "c2": -0.36438978225063084,
+    "c4": 10.721530426424664,
+    "mse_a0": 0.07250354554214541,
+    "mse_afull": 0.11490034950671618,
+    "exhaustive": {
+      "a_star": 0.164,
+      "grid_step": 0.000125,
+      "mse_star": 0.06946208860452391
+    },
+    "exact_root": {
+      "a_star": 0.16405416192249264,
+      "status": "interior_convex:n_stationary=2:M2=5.729e-01",
+      "delta": 0.0,
+      "kappa_at_star": 0.57260889327726,
+      "kappa_min_interval": 0.57260889327726,
+      "L": 3.102034782417884e-05,
+      "d_measured": 5.416192249263485e-05,
+      "d_upper_convex": Infinity,
+      "d_lower_lip": 0.0,
+      "within_one_gridstep": true,
+      "grid_uncertainty": 0.000125
+    },
+    "envelope": {
+      "a_star": 0.3540366433358772,
+      "status": "interior",
+      "delta": 0.013787951545051663,
+      "kappa_at_star": 0.57260889327726,
+      "kappa_min_interval": 0.57260889327726,
+      "L": 0.15505705688453728,
+      "d_measured": 0.1900366433358772,
+      "d_upper_convex": 0.2195751225278449,
+      "d_lower_lip": 0.0889217931907402,
+      "within_one_gridstep": false,
+      "grid_uncertainty": 0.000125
+    },
+    "quartic": {
+      "a_star": 0.13035860557504225,
+      "status": "interior",
+      "delta": 0.000293792994171288,
+      "kappa_at_star": 0.57260889327726,
+      "kappa_min_interval": 0.39558679106377337,
+      "L": 0.016443131622629503,
+      "d_measured": 0.033641394424957755,
+      "d_upper_convex": 0.038665276369203846,
+      "d_lower_lip": 0.017867216593155637,
+      "within_one_gridstep": false,
+      "grid_uncertainty": 0.000125
+    }
+  },
+  "lorentz_p3_w0=2": {
+    "name": "lorentz_p3_w0=2",
+    "moments": {
+      "E": 1.0000000000000002,
+      "m2": 1.3333155245471728,
+      "m4": 15.459834143330779,
+      "m2_B": 1.0148582916968563,
+      "m4_B": 3.422006429976831,
+      "A0": 0.01705676294171773
+    },
+    "c2": 0.2321336862821799,
+    "c4": 0.09573134759307907,
+    "mse_a0": 0.01705676294171773,
+    "mse_afull": 0.0798615788959627,
+    "exhaustive": {
+      "a_star": 0.0,
+      "grid_step": 0.000125,
+      "mse_star": 0.01705676294171773
+    },
+    "exact_root": {
+      "a_star": 0.0,
+      "status": "boundary:a=0.0;n_stationary=1",
+      "delta": 0.0,
+      "kappa_at_star": 0.46426738747699287,
+      "kappa_min_interval": 0.46426743352091576,
+      "L": 4.642673722927269e-13,
+      "d_measured": 0.0,
+      "d_upper_convex": Infinity,
+      "d_lower_lip": 0.0,
+      "within_one_gridstep": true,
+      "grid_uncertainty": 0.000125
+    },
+    "envelope": {
+      "a_star": 0.2673487633913585,
+      "status": "sat:envelope_too_loose_use_exact_root",
+      "delta": 0.017541285161429106,
+      "kappa_at_star": 0.46426738747699287,
+      "kappa_min_interval": 0.46427198222515637,
+      "L": 0.13521752287997058,
+      "d_measured": 0.2673487633913585,
+      "d_upper_convex": 0.27501533106800236,
+      "d_lower_lip": 0.1297264199773878,
+      "within_one_gridstep": false,
+      "grid_uncertainty": 0.000125
+    },
+    "quartic": {
+      "a_star": 0.0,
+      "status": "c2>=0:no_interior_minimum_a*=0",
+      "delta": 0.0,
+      "kappa_at_star": 0.46426738747699287,
+      "kappa_min_interval": 0.46426743352091576,
+      "L": 4.642673722927269e-13,
+      "d_measured": 0.0,
+      "d_upper_convex": Infinity,
+      "d_lower_lip": 0.0,
+      "within_one_gridstep": true,
+      "grid_uncertainty": 0.000125
+    }
+  }
+}
