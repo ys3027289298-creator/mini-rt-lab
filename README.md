@@ -7,3 +7,4 @@
 | `bvh/` | 包围盒树构建、中位数分裂、最近命中 |
 | `sample/` | 分层与低差异采样、方差估计 |
 | `material/` | Lambert 与 GGX 求值、余弦加权采样 |
+| `roughness/` | 感知粗糙度到 GGX alpha 的单调映射、误差上界、r=0 镜像导出 |
