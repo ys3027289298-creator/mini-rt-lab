@@ -7,3 +7,4 @@
 | `bvh/` | 包围盒树构建、中位数分裂、最近命中 |
 | `sample/` | 分层与低差异采样、方差估计 |
 | `material/` | Lambert 与 GGX 求值、余弦加权采样 |
+| `decorr/` | 按像素的 Cranley-Patterson 旋转与索引置换、相关系数理论/实测上界、花纹指标 |
