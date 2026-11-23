@@ -1,0 +1,349 @@
+{
+  "probe": "brdf_lambert pi scaled by (1+eps); relative BRDF error = 1-1/(1+eps)",
+  "config": {
+    "width": 320,
+    "height": 240,
+    "spp": 16,
+    "seed": 1,
+    "scenes": "grid,rough,occlude,grazing,warm",
+    "epsilons": "0.0001,0.0003,0.001,0.002,0.003,0.005,0.01,0.02,0.05,0.1"
+  },
+  "thresholds": {
+    "vis_diff": 3,
+    "min_pixels": 8
+  },
+  "rows": [
+    {
+      "rel_error": 0.0001,
+      "scenes": {
+        "grid": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "rough": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "occlude": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "grazing": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "warm": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        }
+      },
+      "min_vis": 0,
+      "all_scenes_visible": false,
+      "max_vis": 0
+    },
+    {
+      "rel_error": 0.0003,
+      "scenes": {
+        "grid": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "rough": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "occlude": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "grazing": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "warm": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        }
+      },
+      "min_vis": 0,
+      "all_scenes_visible": false,
+      "max_vis": 0
+    },
+    {
+      "rel_error": 0.001,
+      "scenes": {
+        "grid": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "rough": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "occlude": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "grazing": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "warm": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        }
+      },
+      "min_vis": 0,
+      "all_scenes_visible": false,
+      "max_vis": 0
+    },
+    {
+      "rel_error": 0.002,
+      "scenes": {
+        "grid": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "rough": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "occlude": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "grazing": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "warm": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        }
+      },
+      "min_vis": 0,
+      "all_scenes_visible": false,
+      "max_vis": 0
+    },
+    {
+      "rel_error": 0.003,
+      "scenes": {
+        "grid": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "rough": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "occlude": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "grazing": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "warm": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        }
+      },
+      "min_vis": 0,
+      "all_scenes_visible": false,
+      "max_vis": 0
+    },
+    {
+      "rel_error": 0.005,
+      "scenes": {
+        "grid": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "rough": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "occlude": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "grazing": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "warm": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        }
+      },
+      "min_vis": 0,
+      "all_scenes_visible": false,
+      "max_vis": 0
+    },
+    {
+      "rel_error": 0.01,
+      "scenes": {
+        "grid": {
+          "n_vis": 0,
+          "max": 2,
+          "visible": false
+        },
+        "rough": {
+          "n_vis": 0,
+          "max": 2,
+          "visible": false
+        },
+        "occlude": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "grazing": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        },
+        "warm": {
+          "n_vis": 0,
+          "max": 1,
+          "visible": false
+        }
+      },
+      "min_vis": 0,
+      "all_scenes_visible": false,
+      "max_vis": 0
+    },
+    {
+      "rel_error": 0.02,
+      "scenes": {
+        "grid": {
+          "n_vis": 1,
+          "max": 3,
+          "visible": false
+        },
+        "rough": {
+          "n_vis": 13,
+          "max": 3,
+          "visible": true
+        },
+        "occlude": {
+          "n_vis": 0,
+          "max": 2,
+          "visible": false
+        },
+        "grazing": {
+          "n_vis": 0,
+          "max": 2,
+          "visible": false
+        },
+        "warm": {
+          "n_vis": 0,
+          "max": 2,
+          "visible": false
+        }
+      },
+      "min_vis": 0,
+      "all_scenes_visible": false,
+      "max_vis": 13
+    },
+    {
+      "rel_error": 0.05,
+      "scenes": {
+        "grid": {
+          "n_vis": 18223,
+          "max": 6,
+          "visible": true
+        },
+        "rough": {
+          "n_vis": 20192,
+          "max": 6,
+          "visible": true
+        },
+        "occlude": {
+          "n_vis": 13125,
+          "max": 4,
+          "visible": true
+        },
+        "grazing": {
+          "n_vis": 52810,
+          "max": 5,
+          "visible": true
+        },
+        "warm": {
+          "n_vis": 430,
+          "max": 3,
+          "visible": true
+        }
+      },
+      "min_vis": 430,
+      "all_scenes_visible": true,
+      "max_vis": 52810
+    },
+    {
+      "rel_error": 0.1,
+      "scenes": {
+        "grid": {
+          "n_vis": 20313,
+          "max": 10,
+          "visible": true
+        },
+        "rough": {
+          "n_vis": 39190,
+          "max": 11,
+          "visible": true
+        },
+        "occlude": {
+          "n_vis": 16524,
+          "max": 7,
+          "visible": true
+        },
+        "grazing": {
+          "n_vis": 55364,
+          "max": 10,
+          "visible": true
+        },
+        "warm": {
+          "n_vis": 35338,
+          "max": 5,
+          "visible": true
+        }
+      },
+      "min_vis": 16524,
+      "all_scenes_visible": true,
+      "max_vis": 55364
+    }
+  ],
+  "smallest_visible_any_scene": 0.02,
+  "smallest_visible_in_every_scene": 0.05
+}

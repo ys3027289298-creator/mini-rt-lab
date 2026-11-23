@@ -1,0 +1,3027 @@
+{
+  "config": {
+    "w": 320,
+    "h": 240,
+    "spp": 16,
+    "seed": 1,
+    "scenes": [
+      "grid",
+      "rough",
+      "occlude",
+      "grazing",
+      "warm"
+    ],
+    "build": "/home/ys/feedback/uidreczz28d2xjxr3sH/mut/build",
+    "out": "results"
+  },
+  "thresholds": {
+    "vis_diff": 3,
+    "min_pixels": 8
+  },
+  "reference": {
+    "grid": {
+      "sha256": "0b66a0f25c2f9e6c9fb2b78183274e8e60e39c35fbd03fb289a93a0efe2849eb",
+      "fnv1a_header": "7f0f6041",
+      "raw": "frames/grid.raw",
+      "bytes": 230400
+    },
+    "rough": {
+      "sha256": "19b117279f771abb1b793977886c9130463732bd802f61c09c7f423f1a9940ca",
+      "fnv1a_header": "4efaad40",
+      "raw": "frames/rough.raw",
+      "bytes": 230400
+    },
+    "occlude": {
+      "sha256": "c96bd0f07f43bf506862516039e5ef8e7c4e0c86fe6cccd87a3491ace850fb00",
+      "fnv1a_header": "31eeb52b",
+      "raw": "frames/occlude.raw",
+      "bytes": 230400
+    },
+    "grazing": {
+      "sha256": "c38a7fe584ccc5606f54cdef0a83993f00a0769716356543a2fb869d269c26b2",
+      "fnv1a_header": "d885489d",
+      "raw": "frames/grazing.raw",
+      "bytes": 230400
+    },
+    "warm": {
+      "sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+      "fnv1a_header": "b209879d",
+      "raw": "frames/warm.raw",
+      "bytes": 230400
+    }
+  },
+  "summary": {
+    "defects": {
+      "n": 23,
+      "caught": 23,
+      "rate": 1.0
+    },
+    "defects_incl_subthreshold": {
+      "n": 24,
+      "caught": 23,
+      "rate": 0.9583333333333334
+    },
+    "defect_subthreshold": {
+      "n": 1,
+      "caught": 0,
+      "rate": 0.0
+    },
+    "equivalents": {
+      "n": 10,
+      "caught": 0,
+      "rate": 0.0
+    },
+    "as_expected": 34,
+    "wrong": [],
+    "by_operator": {
+      "boundary": {
+        "n": 2,
+        "caught": 2
+      },
+      "arithmetic": {
+        "n": 18,
+        "caught": 17
+      },
+      "logical": {
+        "n": 1,
+        "caught": 1
+      },
+      "algorithm": {
+        "n": 2,
+        "caught": 2
+      },
+      "dataflow": {
+        "n": 1,
+        "caught": 1
+      },
+      "equivalent": {
+        "n": 0,
+        "caught": 0
+      }
+    },
+    "by_module": {
+      "bvh": {
+        "n": 12,
+        "caught": 12
+      },
+      "material": {
+        "n": 12,
+        "caught": 11
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "bvh-slab-t0-origin",
+      "module": "bvh",
+      "operator": "boundary",
+      "kind": "defect",
+      "title": "slab entry starts at 1e-2, clipping hits near the ray origin",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 13,
+          "n_vis": 146,
+          "rmse": 0.23391853698337897,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "1c680c14faa107a8fa29afaedfc32b0e5fd9c7c5a9c3b9088545076d3dfbc721",
+          "diff_sha256": "3f9cef07df589f3657668e35671e4380c3d03522d8e6c31766b0d7b50cb73b6a",
+          "diff_png": "mutants/bvh-slab-t0-origin/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 18,
+          "n_vis": 192,
+          "rmse": 0.27639325094268613,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "a110df278a0614a59283cde6dc8889072f467dd744805c2eee4f434dd001604c",
+          "diff_sha256": "a744f4ab8523080aa1e0183a47c40297cb561c87405bbd8a92af8614030e294c",
+          "diff_png": "mutants/bvh-slab-t0-origin/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 12,
+          "n_vis": 96,
+          "rmse": 0.17017148213885114,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "8fea86f65ee82d0a695e70878eaaa437d12f36140be4c2aea2dc5a413f2775b3",
+          "diff_sha256": "aeaef0caf2257eff34d3ea7a41ecc5393ac6fd68d279dfb94cfe965f1988ffec",
+          "diff_png": "mutants/bvh-slab-t0-origin/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 12,
+          "n_vis": 106,
+          "rmse": 0.17496279366387205,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "a9dafa95753fa99aa372525252e9b94ee4eed3f0a32ff84905a833b6b65f4b26",
+          "diff_sha256": "f63245c49a67d9a395ff5ebbe5c49d0c4033485c7768649a5972336461897ec9",
+          "diff_png": "mutants/bvh-slab-t0-origin/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 9,
+          "n_vis": 52,
+          "rmse": 0.10370732053878036,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "4a3ac7e2ef70c4a772ea7c0d67fee012cbf2a985fb0f3b53235d3662cf8aab7e",
+          "diff_sha256": "acbd9de76c6d83c05825a360c1f99cd146cd584448b9ad17023d3325396af8fe",
+          "diff_png": "mutants/bvh-slab-t0-origin/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 18,
+      "max_diff_scene": "rough",
+      "reason": "caught by image oracle",
+      "source_sha256": "1b3d2ba054e959d1599a84b0ff3d62a9cff2ae80665de59db93f9681b2eef688",
+      "sandbox": "mutants/bvh-slab-t0-origin",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-slab-no-swap",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "slab test drops the ta/tb swap for negative ray directions",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 160,
+          "n_vis": 18516,
+          "rmse": 18.687654217126582,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "a6b6d56c308a8736f2caa53f7b1866f10770af4e7812b157f304099dc5ff7769",
+          "diff_sha256": "fa4fa9f4eed62596a49ee808802ea61a730229a7a09d3109d1b41a9c851c28b9",
+          "diff_png": "mutants/bvh-slab-no-swap/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 188,
+          "n_vis": 35941,
+          "rmse": 25.800830275050153,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "cbae1477a8af98ad2acbf718cc55b1e4985307ff51b5ee694a012d43a4fdda31",
+          "diff_sha256": "1e93eb5c5d0c2e7f6a83422337a219b587de35f971f834a37ed26097c9f93c0f",
+          "diff_png": "mutants/bvh-slab-no-swap/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 158,
+          "n_vis": 14910,
+          "rmse": 19.767443070755398,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "ca33bc2489c02080c856dbe1f455902c372374730beeccf2b95c156858dec9b2",
+          "diff_sha256": "88315b22fce0533454551accaed3e05a2329cb91037397caa915e0a04aaa5474",
+          "diff_png": "mutants/bvh-slab-no-swap/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 172,
+          "n_vis": 54168,
+          "rmse": 22.169897458008485,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "2402d646440b168844ace79683ace1c72d68420dfa8c6f80286ea2d5b8700aba",
+          "diff_sha256": "9f5a54aafa60be1dcdd82241f22af47bbc37aab747241bd5de00ede2259401c4",
+          "diff_png": "mutants/bvh-slab-no-swap/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 188,
+          "n_vis": 36099,
+          "rmse": 38.10288070775183,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "1dd0ccc3a9425b9f2e7f4c67efc401f5de619345ccadc29c8aa7823628b0496c",
+          "diff_sha256": "b921d75b304061818d486d7d06998e6647437399e42a51fdfd02b8e05137eb9d",
+          "diff_png": "mutants/bvh-slab-no-swap/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 188,
+      "max_diff_scene": "rough",
+      "reason": "caught by image oracle",
+      "source_sha256": "3b96ec74cddefd75f45a08ab105793b4f11220b738bf0ca65365f9efbe1fc920",
+      "sandbox": "mutants/bvh-slab-no-swap",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-slab-cull-inverted",
+      "module": "bvh",
+      "operator": "logical",
+      "kind": "defect",
+      "title": "slab rejection predicate inverted (t0 < t1)",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "hit_box",
+          "miss_box",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 160,
+          "n_vis": 20177,
+          "rmse": 20.79519049964839,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "fe8e055de235a36cad6f52323b6a8019a28dc49a72e375b96c6c0a71e3329271",
+          "diff_sha256": "f7d7169a2513c9348aeb183b09b725a495a23ee6bec2c3fba29683a28900172b",
+          "diff_png": "mutants/bvh-slab-cull-inverted/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 188,
+          "n_vis": 38582,
+          "rmse": 28.58154103345763,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "e6829b41df0a430f2a7181629f4b627649fe67314bd2bec4a44052377765f5c9",
+          "diff_sha256": "1f94cb73fb3b096bce5e06247722dea67abb6a2432120b335720460b828cb00b",
+          "diff_png": "mutants/bvh-slab-cull-inverted/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 158,
+          "n_vis": 16904,
+          "rmse": 21.765541322524005,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "dd42a0f096c717ff9017d03a077212025153489d754a9f1d6fc72af2c776f13f",
+          "diff_sha256": "ecefd98ab2337f6a9e7c279d741d897db5a8de8d4f687ef812b3ea46bbadc160",
+          "diff_png": "mutants/bvh-slab-cull-inverted/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 172,
+          "n_vis": 55458,
+          "rmse": 24.0011791702512,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "4fd5bbecdb30e5d328f612aeabc1a432318bc13b4969629269618c4c5d8c94ad",
+          "diff_sha256": "57eb791b2b1fda63b098f2468e2628307cec3ba667ffe5eaf534f57862f92990",
+          "diff_png": "mutants/bvh-slab-cull-inverted/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 188,
+          "n_vis": 40878,
+          "rmse": 41.43949577270256,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "21d8747d3cc8e4231d8e293fc792538c5437ec16c2cfbef4d371047887a12fa3",
+          "diff_sha256": "ac4d9b0b0274139692573cedae09a902ba595941a140857f139a069ebbb7f9b9",
+          "diff_png": "mutants/bvh-slab-cull-inverted/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 188,
+      "max_diff_scene": "rough",
+      "reason": "caught by image oracle",
+      "source_sha256": "995c087b7b79c88cbd2f11abe5c081e345de4609d462023bdb9f99a910b08428",
+      "sandbox": "mutants/bvh-slab-cull-inverted",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-slab-t0-frozen",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "t0 never advances to the slab entry, so behind-origin boxes hit at t=0",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "hit_box",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 133,
+          "n_vis": 73866,
+          "rmse": 30.684360413056247,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "7466975b187eaf96697829de259f6f5a6e7881da645d8fbb8b544b652835577c",
+          "diff_sha256": "6b8fcaab61a696863b975700ce8050bd6d2e9c5a8eae5d8f87005927423ecfe8",
+          "diff_png": "mutants/bvh-slab-t0-frozen/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 142,
+          "n_vis": 72522,
+          "rmse": 32.45552198190711,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "c1bcd64d5b0be38686b35637dd1981ab45670ef3d99d56d4d8fd486192646d9a",
+          "diff_sha256": "9fc814c40e122a402224d9daae34083b396e3791bb3d8bde95ca496ad0b25700",
+          "diff_png": "mutants/bvh-slab-t0-frozen/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 110,
+          "n_vis": 72399,
+          "rmse": 32.871589057839905,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "c1dda69ac77df9090bd4a3ecc9843c573c1b406dd9ddd4f514267ebb086fab29",
+          "diff_sha256": "4179402d919467f18de8d29bcc199112675ad833a00dfa4b2fa21a5e3d275988",
+          "diff_png": "mutants/bvh-slab-t0-frozen/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 117,
+          "n_vis": 73960,
+          "rmse": 23.020293074354345,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "9710b5106b2cb003e7f2df090eede9c86452bef41ee00e1b689574b771a32e1a",
+          "diff_sha256": "130671a5a07d0362854f1fabdeba90e5dcac79911580739483fafbb4daa0d788",
+          "diff_png": "mutants/bvh-slab-t0-frozen/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 126,
+          "n_vis": 69679,
+          "rmse": 37.922279346491464,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "2d6d1849da903a46291ca3b68f1a59040378389f407bf4a7b68b45237d4ffe69",
+          "diff_sha256": "cfaaa7d7a1165d1a1e7a6de43e26b047d8c4f301711c46cb7afbe29ac00feef8",
+          "diff_png": "mutants/bvh-slab-t0-frozen/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 142,
+      "max_diff_scene": "rough",
+      "reason": "caught by image oracle",
+      "source_sha256": "dd6207cf240b25364d0e785ee6d79d6aca2f4d7a40e78b3c069fb22129da266e",
+      "sandbox": "mutants/bvh-slab-t0-frozen",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-slab-t1-frozen",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "t1 never shrinks to the slab exit, keeping boxes the ray misses",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "miss_box",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 255,
+          "n_vis": 76800,
+          "rmse": 149.05275305892354,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "2a589ae1f2fa2a6328223ff195a29c9244bec633dca49139f6f231e1d79c0eb2",
+          "diff_sha256": "fcb02c1247622996dd8b3edea4e8de4cd31ec3bb66b3c0ecbb2c6ae376ebe249",
+          "diff_png": "mutants/bvh-slab-t1-frozen/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 255,
+          "n_vis": 76792,
+          "rmse": 142.15040381471837,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "2a589ae1f2fa2a6328223ff195a29c9244bec633dca49139f6f231e1d79c0eb2",
+          "diff_sha256": "cf5e134fedff40ac2532513f9a5cbf34a10cf7986edcdf60e1510995728980f4",
+          "diff_png": "mutants/bvh-slab-t1-frozen/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 210,
+          "n_vis": 76800,
+          "rmse": 149.97152139957365,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "2a589ae1f2fa2a6328223ff195a29c9244bec633dca49139f6f231e1d79c0eb2",
+          "diff_sha256": "fcb02c1247622996dd8b3edea4e8de4cd31ec3bb66b3c0ecbb2c6ae376ebe249",
+          "diff_png": "mutants/bvh-slab-t1-frozen/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 244,
+          "n_vis": 76800,
+          "rmse": 142.06950149560015,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "2a589ae1f2fa2a6328223ff195a29c9244bec633dca49139f6f231e1d79c0eb2",
+          "diff_sha256": "4bbdf7fa6037ae3c16f4b58c179d06dfacb5e42122c30b6027b6a41a4be2d9f1",
+          "diff_png": "mutants/bvh-slab-t1-frozen/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 210,
+          "n_vis": 76797,
+          "rmse": 130.88142322134354,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "2a589ae1f2fa2a6328223ff195a29c9244bec633dca49139f6f231e1d79c0eb2",
+          "diff_sha256": "41ec32f85e0d376f176fa745160ecdeb56433d3b685c88c475d70598644a1684",
+          "diff_png": "mutants/bvh-slab-t1-frozen/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 255,
+      "max_diff_scene": "grid",
+      "reason": "caught by image oracle",
+      "source_sha256": "c429b79fadab828d6d6b406ee1a434cdb59c70180e0cca6efd980e41a7ecfc20",
+      "sandbox": "mutants/bvh-slab-t1-frozen",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-slab-tmin-is-t1",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "aabb_hit reports the exit parameter t1 instead of entry t0",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 189,
+          "n_vis": 20251,
+          "rmse": 59.4572459606247,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "5878d27a1d9ea2f30b757fd3dd50a3b99ac3096a599aad6ef08c0522d24e57be",
+          "diff_sha256": "a6919d1acdb4d2169ec7f675ebd442f1838de6745587fcf4f6d68fb55de057fd",
+          "diff_png": "mutants/bvh-slab-tmin-is-t1/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 164,
+          "n_vis": 38540,
+          "rmse": 78.12622493484146,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "1bad6c5b7afaf63a2c37480a6f7ca96b7c46fd697d3a5f9e3521fd2fc7fb121e",
+          "diff_sha256": "83ecf60f9080490bef1e233210bb116f807c455610ebb65e613cb00a86273fc2",
+          "diff_png": "mutants/bvh-slab-tmin-is-t1/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 153,
+          "n_vis": 16906,
+          "rmse": 54.26858036750332,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "84247eae691d1dea17310da94cffb79f316e6adc05ac7274689e82a77916c986",
+          "diff_sha256": "8d3136299e8656d909ed9befb7ac60d8dd315f04bf01c57993057f8fdd3b81f5",
+          "diff_png": "mutants/bvh-slab-tmin-is-t1/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 170,
+          "n_vis": 55416,
+          "rmse": 110.7841347963211,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "dc827163f08d1217b5f4d301e036f4fb624687df4c68155c7c52a2e5e63d23a3",
+          "diff_sha256": "1ad7ab17a20d6f2356122672a95b57e08a04666a902fca6f5d6757c15c9b8f1a",
+          "diff_png": "mutants/bvh-slab-tmin-is-t1/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 130,
+          "n_vis": 39582,
+          "rmse": 69.46546313511764,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "efee5351852a8aabbee42d2a46e008dcc91eb68bbdccec9f2483e80e7ef588fe",
+          "diff_sha256": "76f88040e169d6c0aa610432daf16ff74adcc4eb57d9d077a53ec2e1f17056f5",
+          "diff_png": "mutants/bvh-slab-tmin-is-t1/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 189,
+      "max_diff_scene": "grid",
+      "reason": "caught by image oracle",
+      "source_sha256": "20a7f7ad0652a5bafbfea997ab3597b9194806b2b00a9838deb63754046e8306",
+      "sandbox": "mutants/bvh-slab-tmin-is-t1",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-slab-mul-inv",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "slab distances multiply by d instead of the reciprocal",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 157,
+          "n_vis": 20433,
+          "rmse": 20.867225764607788,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "9982809018dfad0a0418baeb6e896e185d8e727a53c570e5069bb576ae2a465e",
+          "diff_sha256": "63ca8bbed35c93a125c147cdc82fb09515793e1f29dae73e2ea73f94d74b5851",
+          "diff_png": "mutants/bvh-slab-mul-inv/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 188,
+          "n_vis": 39639,
+          "rmse": 29.64657661869804,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "fda9a46308ef1a0969ef6fef6a731221e8a6e1fbb0df0ddf98514c6c9ee81864",
+          "diff_sha256": "01fcf1705d11b0fea2548b13a46392950522c232dc19ca28b777efd8a005ddff",
+          "diff_png": "mutants/bvh-slab-mul-inv/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 158,
+          "n_vis": 16904,
+          "rmse": 21.765541322524005,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "dd42a0f096c717ff9017d03a077212025153489d754a9f1d6fc72af2c776f13f",
+          "diff_sha256": "ecefd98ab2337f6a9e7c279d741d897db5a8de8d4f687ef812b3ea46bbadc160",
+          "diff_png": "mutants/bvh-slab-mul-inv/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 126,
+          "n_vis": 61899,
+          "rmse": 23.729945297438938,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "9f420387d28267ae3c05645842e4cb9b7ac99816328d9ea156b56fc2d4a4f841",
+          "diff_sha256": "65445490d2d8f1fb160050b8f6e2b431a9435088fec9db90dba65fe782fd77aa",
+          "diff_png": "mutants/bvh-slab-mul-inv/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 188,
+          "n_vis": 41747,
+          "rmse": 41.40166704197026,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "75467ac8f659276f0702896326d131c2c22afbff48271b8feb3ab9319cfd8fa3",
+          "diff_sha256": "7579e33fc256a7564d18a3c95f61bb93fa5c7db010dabe020f2ac8d7de9f6093",
+          "diff_png": "mutants/bvh-slab-mul-inv/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 188,
+      "max_diff_scene": "rough",
+      "reason": "caught by image oracle",
+      "source_sha256": "01a73b3f7427351ffdab986e5f50b21f9e4fb3ec9803d23b6d94878aed5f6673",
+      "sandbox": "mutants/bvh-slab-mul-inv",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-slab-parallel-eps",
+      "module": "bvh",
+      "operator": "boundary",
+      "kind": "defect",
+      "title": "parallel threshold 1e-8 raised to 1e-1, misclassifying shallow rays",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 157,
+          "n_vis": 2361,
+          "rmse": 7.917996598817714,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "98bc77bd0e5b8c32a03fe8ead8f50adbccc8c246b0681f8eb12098d06cff9476",
+          "diff_sha256": "9e082e2a4c333b99a2c42cbeee00077b84321b48caf43c86d2e7968b06f907fc",
+          "diff_png": "mutants/bvh-slab-parallel-eps/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 20,
+          "n_vis": 254,
+          "rmse": 0.2134171384870484,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "ebdaa371254e8f2ad6c88ebbf46a096243e53c0c4a8546e3c5e22d4abd27d7e5",
+          "diff_sha256": "3a4805a275e68e2b0c63d2a501871fda0458007913b4b636e4e51d6a2423c369",
+          "diff_png": "mutants/bvh-slab-parallel-eps/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 73,
+          "n_vis": 1756,
+          "rmse": 5.521292433741296,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "fdf54acc129977ca71a4fe892b25990465cd0cb9aa52945a295472ebf68c823f",
+          "diff_sha256": "c4eb4fe178774886de2b674d23c408950f5403a01aab0176fd308ba47af09aac",
+          "diff_png": "mutants/bvh-slab-parallel-eps/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 69,
+          "n_vis": 2349,
+          "rmse": 1.5765672317129744,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "ba2dac5d0dbba7c65736c66dc90cb888d1f523bfdd4b72a8caea0a27e618ff4f",
+          "diff_sha256": "1e6fb82bfd32063b8ad243ba659e1b39d457b3a6dba0885b2c422b5c3a3900d7",
+          "diff_png": "mutants/bvh-slab-parallel-eps/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 21,
+          "n_vis": 157,
+          "rmse": 0.19683917222499747,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "0e478dbb3adb9506471f65c02ef7ce6e3d55ffa1952ce75adb4fcfdca3f787a4",
+          "diff_sha256": "3a9d75c1581002c03fd54541ef79696b0341488fc1fe9e5db02e715e9d658fab",
+          "diff_png": "mutants/bvh-slab-parallel-eps/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 157,
+      "max_diff_scene": "grid",
+      "reason": "caught by image oracle",
+      "source_sha256": "e75723bd71510d3b102965bb580f8c63a62d09f8a2e2dfadbd0aa412ae8ebd8c",
+      "sandbox": "mutants/bvh-slab-parallel-eps",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-split-widest-flipped",
+      "module": "bvh",
+      "operator": "algorithm",
+      "kind": "equivalent",
+      "title": "split picks narrowest instead of widest axis (tree shape only; same hits)",
+      "equivalence_note": "only changes which axis is cut, so the same set of boxes is partitioned differently; nearest-hit answers are identical (validated: tree path equals brute path)",
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "0b66a0f25c2f9e6c9fb2b78183274e8e60e39c35fbd03fb289a93a0efe2849eb",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-split-widest-flipped/diff_grid.png",
+          "ref_differs": false
+        },
+        "rough": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "19b117279f771abb1b793977886c9130463732bd802f61c09c7f423f1a9940ca",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-split-widest-flipped/diff_rough.png",
+          "ref_differs": false
+        },
+        "occlude": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c96bd0f07f43bf506862516039e5ef8e7c4e0c86fe6cccd87a3491ace850fb00",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-split-widest-flipped/diff_occlude.png",
+          "ref_differs": false
+        },
+        "grazing": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c38a7fe584ccc5606f54cdef0a83993f00a0769716356543a2fb869d269c26b2",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-split-widest-flipped/diff_grazing.png",
+          "ref_differs": false
+        },
+        "warm": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-split-widest-flipped/diff_warm.png",
+          "ref_differs": false
+        }
+      },
+      "caught": false,
+      "caught_bitwise": false,
+      "survived": true,
+      "max_diff": 0,
+      "max_diff_scene": null,
+      "reason": "equivalent mutant: visually identical, as expected",
+      "source_sha256": "3d4acd2f21f251dfbe5c4b1bc86cc2edf3b9368d39aad177e7b26d55ceeed9cc",
+      "sandbox": "mutants/bvh-split-widest-flipped",
+      "expected": "survive",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-split-partition-disabled",
+      "module": "bvh",
+      "operator": "algorithm",
+      "kind": "equivalent",
+      "title": "centroid partition disabled; falls back to index-median split",
+      "equivalence_note": "falls back to the count/2 split; still a valid spatial partition, nearest-hit answers identical",
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "0b66a0f25c2f9e6c9fb2b78183274e8e60e39c35fbd03fb289a93a0efe2849eb",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-split-partition-disabled/diff_grid.png",
+          "ref_differs": false
+        },
+        "rough": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "19b117279f771abb1b793977886c9130463732bd802f61c09c7f423f1a9940ca",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-split-partition-disabled/diff_rough.png",
+          "ref_differs": false
+        },
+        "occlude": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c96bd0f07f43bf506862516039e5ef8e7c4e0c86fe6cccd87a3491ace850fb00",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-split-partition-disabled/diff_occlude.png",
+          "ref_differs": false
+        },
+        "grazing": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c38a7fe584ccc5606f54cdef0a83993f00a0769716356543a2fb869d269c26b2",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-split-partition-disabled/diff_grazing.png",
+          "ref_differs": false
+        },
+        "warm": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-split-partition-disabled/diff_warm.png",
+          "ref_differs": false
+        }
+      },
+      "caught": false,
+      "caught_bitwise": false,
+      "survived": true,
+      "max_diff": 0,
+      "max_diff_scene": null,
+      "reason": "equivalent mutant: visually identical, as expected",
+      "source_sha256": "76ef79771706dd8cdc94bf8a07674220a3436fb2a84dbd2279046b52242329c9",
+      "sandbox": "mutants/bvh-split-partition-disabled",
+      "expected": "survive",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-split-no-swap",
+      "module": "bvh",
+      "operator": "algorithm",
+      "kind": "defect",
+      "title": "partition counts left prims but never swaps them into place",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 160,
+          "n_vis": 19999,
+          "rmse": 19.5624567358414,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "c7e358aba9cda51a843c97c7153b6d9ef2be4b147b4c6556c771688cd41cabdf",
+          "diff_sha256": "23cf8ab6d845a158e43561a51865f84424275bc114190e8696bb19794599af2d",
+          "diff_png": "mutants/bvh-split-no-swap/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "19b117279f771abb1b793977886c9130463732bd802f61c09c7f423f1a9940ca",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-split-no-swap/diff_rough.png",
+          "ref_differs": false
+        },
+        "occlude": {
+          "max": 148,
+          "n_vis": 16125,
+          "rmse": 16.718397581955436,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "76f8ebb63b81607766ccd3690141a5be805d141251b04ce7510a813c19ba1c4e",
+          "diff_sha256": "4ffce10efeb1350a0ed88963162cce44add3204baf6866b0902c85f7d4bf1e09",
+          "diff_png": "mutants/bvh-split-no-swap/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 172,
+          "n_vis": 52068,
+          "rmse": 20.123513251673472,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "21c89e679b49a15644286959964b783919a1794a9e5d7acca922da1b106a9739",
+          "diff_sha256": "93738757b0b2c980192d3470c895cfc1e05babe58643337adb88a6c1855b208b",
+          "diff_png": "mutants/bvh-split-no-swap/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-split-no-swap/diff_warm.png",
+          "ref_differs": false
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 172,
+      "max_diff_scene": "grazing",
+      "reason": "caught by image oracle",
+      "source_sha256": "69f3baee667dbfd0426dad3d1f68e1fc5911c1b0f14deaf5ebc903bae98a9252",
+      "sandbox": "mutants/bvh-split-no-swap",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-leaf-threshold-1",
+      "module": "bvh",
+      "operator": "boundary",
+      "kind": "equivalent",
+      "title": "leaf capacity 2 -> 1; deeper tree, identical hits",
+      "equivalence_note": "tree depth only; the same boxes are tested, in a different grouping",
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "0b66a0f25c2f9e6c9fb2b78183274e8e60e39c35fbd03fb289a93a0efe2849eb",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-leaf-threshold-1/diff_grid.png",
+          "ref_differs": false
+        },
+        "rough": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "19b117279f771abb1b793977886c9130463732bd802f61c09c7f423f1a9940ca",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-leaf-threshold-1/diff_rough.png",
+          "ref_differs": false
+        },
+        "occlude": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c96bd0f07f43bf506862516039e5ef8e7c4e0c86fe6cccd87a3491ace850fb00",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-leaf-threshold-1/diff_occlude.png",
+          "ref_differs": false
+        },
+        "grazing": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c38a7fe584ccc5606f54cdef0a83993f00a0769716356543a2fb869d269c26b2",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-leaf-threshold-1/diff_grazing.png",
+          "ref_differs": false
+        },
+        "warm": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-leaf-threshold-1/diff_warm.png",
+          "ref_differs": false
+        }
+      },
+      "caught": false,
+      "caught_bitwise": false,
+      "survived": true,
+      "max_diff": 0,
+      "max_diff_scene": null,
+      "reason": "equivalent mutant: visually identical, as expected",
+      "source_sha256": "865e150495b2f00704230cff43b7b4b105aeeea18e9089c49e003b3752bd626a",
+      "sandbox": "mutants/bvh-leaf-threshold-1",
+      "expected": "survive",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-leaf-threshold-3",
+      "module": "bvh",
+      "operator": "boundary",
+      "kind": "equivalent",
+      "title": "leaf capacity 2 -> 3; shallower tree, identical hits",
+      "equivalence_note": "tree depth only; same boxes tested",
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "build_ok",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "0b66a0f25c2f9e6c9fb2b78183274e8e60e39c35fbd03fb289a93a0efe2849eb",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-leaf-threshold-3/diff_grid.png",
+          "ref_differs": false
+        },
+        "rough": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "19b117279f771abb1b793977886c9130463732bd802f61c09c7f423f1a9940ca",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-leaf-threshold-3/diff_rough.png",
+          "ref_differs": false
+        },
+        "occlude": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c96bd0f07f43bf506862516039e5ef8e7c4e0c86fe6cccd87a3491ace850fb00",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-leaf-threshold-3/diff_occlude.png",
+          "ref_differs": false
+        },
+        "grazing": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c38a7fe584ccc5606f54cdef0a83993f00a0769716356543a2fb869d269c26b2",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-leaf-threshold-3/diff_grazing.png",
+          "ref_differs": false
+        },
+        "warm": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-leaf-threshold-3/diff_warm.png",
+          "ref_differs": false
+        }
+      },
+      "caught": false,
+      "caught_bitwise": false,
+      "survived": true,
+      "max_diff": 0,
+      "max_diff_scene": null,
+      "reason": "equivalent mutant: visually identical, as expected",
+      "source_sha256": "ff7e2224a7312bbee0623ea31d28069df5fa6c5f5c19fbc7ef973e639756325c",
+      "sandbox": "mutants/bvh-leaf-threshold-3",
+      "expected": "survive",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-node-bounds-empty",
+      "module": "bvh",
+      "operator": "algorithm",
+      "kind": "equivalent",
+      "title": "internal node bounds never grown; empty boxes degenerate to accept-all, so the tree stops culling",
+      "equivalence_note": "an empty AABB (min=+1e30, max=-1e30) makes the slab test accept every ray, so traversal degenerates to testing all boxes: same hits, no culling",
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "root_covers",
+          "hit_box",
+          "area_positive",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 3,
+          "n_vis": 1,
+          "rmse": 0.007795119555779045,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "acb89f94079c7b17ce8ba8df3ae6748b2285b549e64c973c05ab0257544ada37",
+          "diff_sha256": "ff89e234e8c25dd4dbcff7f8030669a7a23ba44707c8f01f9f639b5f845f4916",
+          "diff_png": "mutants/bvh-node-bounds-empty/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 4,
+          "n_vis": 1,
+          "rmse": 0.009547032697824667,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "508f51f938e42fc82966b26ed7140b543daa097c97bcea1c46f91761b2e2de5a",
+          "diff_sha256": "185cbb6f3f2dc039e1d846c129271553ac77027ca1029f7647a5af22dd5cd224",
+          "diff_png": "mutants/bvh-node-bounds-empty/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 12,
+          "n_vis": 1,
+          "rmse": 0.033398374045586245,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "4ddef8f5a3e8f482cc9b82c8f9013f69dd3f1fe5423dfc2c4d37fbc79eec39c3",
+          "diff_sha256": "a4df885b89ec7fc9c80881539e43c829a904afa4b4682664fb1ba9ee1c40a7e6",
+          "diff_png": "mutants/bvh-node-bounds-empty/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 4,
+          "n_vis": 1,
+          "rmse": 0.009547032697824667,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "8032c1bec0dd673fd0a87639f2daa60b223d16ff50a9f721a77105c929ad4483",
+          "diff_sha256": "185cbb6f3f2dc039e1d846c129271553ac77027ca1029f7647a5af22dd5cd224",
+          "diff_png": "mutants/bvh-node-bounds-empty/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 6,
+          "n_vis": 1,
+          "rmse": 0.013339842161318435,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "ab6fb1fb1eec15fc571c7248921552dc49322122eedf4efb99b5249812ea7d97",
+          "diff_sha256": "4b0181c7238464d213d765b72e45db5d4fae83fdd32e887c9bc76a45a68788ca",
+          "diff_png": "mutants/bvh-node-bounds-empty/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": false,
+      "caught_bitwise": true,
+      "survived": true,
+      "max_diff": 12,
+      "max_diff_scene": "occlude",
+      "reason": "equivalent mutant: visually identical, as expected",
+      "source_sha256": "0c9bce218813e6df16981b2b86a68b98d326e7766320df5d6f7228fd8ed4db72",
+      "sandbox": "mutants/bvh-node-bounds-empty",
+      "expected": "survive",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-grow-max-dropped",
+      "module": "bvh",
+      "operator": "algorithm",
+      "kind": "defect",
+      "title": "aabb_grow no longer expands maxima",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "hit_box",
+          "area_positive",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 157,
+          "n_vis": 20091,
+          "rmse": 20.780760854727838,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "7c52677893d8de6d8c50ddb68cc55ecec3556ff00464670cd27f98fb02715691",
+          "diff_sha256": "542769ae572c8bf70c5b8de2a04677550360b81bc44514d9e1b5393a04a7ab1c",
+          "diff_png": "mutants/bvh-grow-max-dropped/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 188,
+          "n_vis": 37935,
+          "rmse": 28.45023608267113,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "faf64638fc3395c4d390d281df5d1f4cc3944526af2ef4ce44b3e382a6ccd69a",
+          "diff_sha256": "ac0fce76821895d2d0e4b6eecde2a97639b620a65a69bd908cc18713b7f9ef8c",
+          "diff_png": "mutants/bvh-grow-max-dropped/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 158,
+          "n_vis": 16904,
+          "rmse": 21.765541322524005,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "dd42a0f096c717ff9017d03a077212025153489d754a9f1d6fc72af2c776f13f",
+          "diff_sha256": "ecefd98ab2337f6a9e7c279d741d897db5a8de8d4f687ef812b3ea46bbadc160",
+          "diff_png": "mutants/bvh-grow-max-dropped/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 172,
+          "n_vis": 55453,
+          "rmse": 23.9930145722435,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "ddcaa1e83b2df54c07c1e412155ddd484c9f14abcc55dee9dbc1e6e86d32b70c",
+          "diff_sha256": "85cfe439e96c53616c05098a8d8420a21d27f09a85be1d3dd233e852172b869b",
+          "diff_png": "mutants/bvh-grow-max-dropped/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 188,
+          "n_vis": 40166,
+          "rmse": 41.41289192011951,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "c158b7594863187c7166d414a1fd01e5b2d4cabea6ca7c5722a6a2ef27fa4bb0",
+          "diff_sha256": "6d2ba8d18effa07723c851e9a47dd749526d236ffbc0c8a6ba98cfe8ef94fb92",
+          "diff_png": "mutants/bvh-grow-max-dropped/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 188,
+      "max_diff_scene": "rough",
+      "reason": "caught by image oracle",
+      "source_sha256": "0f8c40d897711068d505643b2868eadf729ae4c295b510a73c8118dfdc0051d2",
+      "sandbox": "mutants/bvh-grow-max-dropped",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-prim-id-constant",
+      "module": "bvh",
+      "operator": "dataflow",
+      "kind": "defect",
+      "title": "every primitive reports id 0, so all boxes alias primitive 0",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 158,
+          "n_vis": 17858,
+          "rmse": 23.44991930215918,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "dee0920ec34fa1f9c9c4af2a860bb743a161d6d13258100a97db4dacd3a0ba40",
+          "diff_sha256": "9028245f883053eca7138dc029ff7390bcf1399d7df91dd4d63aa045e740bc81",
+          "diff_png": "mutants/bvh-prim-id-constant/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 137,
+          "n_vis": 31835,
+          "rmse": 33.0401862977538,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "cec69e7dcd4672ac964bff7a85c030194a4c0e7e902b390b29e9a0f2e17395cd",
+          "diff_sha256": "b486e255ed226cfe6170fb5e4e1cc992cab58d64fbfd9df73de928d9a0ebf599",
+          "diff_png": "mutants/bvh-prim-id-constant/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 151,
+          "n_vis": 11134,
+          "rmse": 22.029537068949548,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "599b5422a3b0c314c1d31451d78c419bde56ce752f29554091398cb5bc02ba9d",
+          "diff_sha256": "2f57f4494f586122806c792c91f8981ee01252b53a8d19ea44e4c7043c47572e",
+          "diff_png": "mutants/bvh-prim-id-constant/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 158,
+          "n_vis": 52594,
+          "rmse": 14.920126315511988,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "77541d722d842a18c332e349a301e66937b9d8ae38ab904d0a591602438f0c6e",
+          "diff_sha256": "231b27c22642924fd2a2be5cb277a499de6892c80364c4126122747c155e6570",
+          "diff_png": "mutants/bvh-prim-id-constant/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 58,
+          "n_vis": 21606,
+          "rmse": 9.999119969957912,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "cc522e02a2134675b8fc40558e34d4935d4b545fd86d22bfc8efa758c69cf30c",
+          "diff_sha256": "932e80cf27e7805c25f172d32bea245045029e82333464e3ae4bdd00e2c9644c",
+          "diff_png": "mutants/bvh-prim-id-constant/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 158,
+      "max_diff_scene": "grid",
+      "reason": "caught by image oracle",
+      "source_sha256": "c9d7f6d4c68f73db172355a688faffb82fbf9d800f746ecba0182a2c092bc69d",
+      "sandbox": "mutants/bvh-prim-id-constant",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-centroid-yz-swap",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "equivalent",
+      "title": "split compares y centroids on the z axis and vice versa (tree shape only)",
+      "equivalence_note": "only reorders the partition of boxes between children; same hits",
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "0b66a0f25c2f9e6c9fb2b78183274e8e60e39c35fbd03fb289a93a0efe2849eb",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-centroid-yz-swap/diff_grid.png",
+          "ref_differs": false
+        },
+        "rough": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "19b117279f771abb1b793977886c9130463732bd802f61c09c7f423f1a9940ca",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-centroid-yz-swap/diff_rough.png",
+          "ref_differs": false
+        },
+        "occlude": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c96bd0f07f43bf506862516039e5ef8e7c4e0c86fe6cccd87a3491ace850fb00",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-centroid-yz-swap/diff_occlude.png",
+          "ref_differs": false
+        },
+        "grazing": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c38a7fe584ccc5606f54cdef0a83993f00a0769716356543a2fb869d269c26b2",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-centroid-yz-swap/diff_grazing.png",
+          "ref_differs": false
+        },
+        "warm": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-centroid-yz-swap/diff_warm.png",
+          "ref_differs": false
+        }
+      },
+      "caught": false,
+      "caught_bitwise": false,
+      "survived": true,
+      "max_diff": 0,
+      "max_diff_scene": null,
+      "reason": "equivalent mutant: visually identical, as expected",
+      "source_sha256": "2ae9067ef9687f3edb82d744527abb4535ef430f538a7fc49fbf2051b034fd5b",
+      "sandbox": "mutants/bvh-centroid-yz-swap",
+      "expected": "survive",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-node-count-not-reserved",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "build reuses node slot 0 for every node instead of reserving",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "build_ok",
+          "root_covers",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 160,
+          "n_vis": 20177,
+          "rmse": 20.79519049964839,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "fe8e055de235a36cad6f52323b6a8019a28dc49a72e375b96c6c0a71e3329271",
+          "diff_sha256": "f7d7169a2513c9348aeb183b09b725a495a23ee6bec2c3fba29683a28900172b",
+          "diff_png": "mutants/bvh-node-count-not-reserved/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 188,
+          "n_vis": 38582,
+          "rmse": 28.58154103345763,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "e6829b41df0a430f2a7181629f4b627649fe67314bd2bec4a44052377765f5c9",
+          "diff_sha256": "1f94cb73fb3b096bce5e06247722dea67abb6a2432120b335720460b828cb00b",
+          "diff_png": "mutants/bvh-node-count-not-reserved/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 158,
+          "n_vis": 16904,
+          "rmse": 21.765541322524005,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "dd42a0f096c717ff9017d03a077212025153489d754a9f1d6fc72af2c776f13f",
+          "diff_sha256": "ecefd98ab2337f6a9e7c279d741d897db5a8de8d4f687ef812b3ea46bbadc160",
+          "diff_png": "mutants/bvh-node-count-not-reserved/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 172,
+          "n_vis": 55458,
+          "rmse": 24.0011791702512,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "4fd5bbecdb30e5d328f612aeabc1a432318bc13b4969629269618c4c5d8c94ad",
+          "diff_sha256": "57eb791b2b1fda63b098f2468e2628307cec3ba667ffe5eaf534f57862f92990",
+          "diff_png": "mutants/bvh-node-count-not-reserved/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 188,
+          "n_vis": 40878,
+          "rmse": 41.43949577270256,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "21d8747d3cc8e4231d8e293fc792538c5437ec16c2cfbef4d371047887a12fa3",
+          "diff_sha256": "ac4d9b0b0274139692573cedae09a902ba595941a140857f139a069ebbb7f9b9",
+          "diff_png": "mutants/bvh-node-count-not-reserved/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 188,
+      "max_diff_scene": "rough",
+      "reason": "caught by image oracle",
+      "source_sha256": "400a7612c3af3d33d6bfacb60a65b95fafe98075ff3fa6eda1c3ee7edf7dfc41",
+      "sandbox": "mutants/bvh-node-count-not-reserved",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "bvh-area-negative-clamped",
+      "module": "bvh",
+      "operator": "boundary",
+      "kind": "equivalent",
+      "title": "aabb_area guard loosened; area is unused by traversal",
+      "equivalence_note": "aabb_area is not called by traversal or by the renderer; no observable path",
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "0b66a0f25c2f9e6c9fb2b78183274e8e60e39c35fbd03fb289a93a0efe2849eb",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-area-negative-clamped/diff_grid.png",
+          "ref_differs": false
+        },
+        "rough": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "19b117279f771abb1b793977886c9130463732bd802f61c09c7f423f1a9940ca",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-area-negative-clamped/diff_rough.png",
+          "ref_differs": false
+        },
+        "occlude": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c96bd0f07f43bf506862516039e5ef8e7c4e0c86fe6cccd87a3491ace850fb00",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-area-negative-clamped/diff_occlude.png",
+          "ref_differs": false
+        },
+        "grazing": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c38a7fe584ccc5606f54cdef0a83993f00a0769716356543a2fb869d269c26b2",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-area-negative-clamped/diff_grazing.png",
+          "ref_differs": false
+        },
+        "warm": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/bvh-area-negative-clamped/diff_warm.png",
+          "ref_differs": false
+        }
+      },
+      "caught": false,
+      "caught_bitwise": false,
+      "survived": true,
+      "max_diff": 0,
+      "max_diff_scene": null,
+      "reason": "equivalent mutant: visually identical, as expected",
+      "source_sha256": "0931bc5dfbee39776423db54f08ed94705e19383ff1f4e2bf36c571d1f1c5295",
+      "sandbox": "mutants/bvh-area-negative-clamped",
+      "expected": "survive",
+      "as_expected": true
+    },
+    {
+      "id": "mat-lambert-mul-pi",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "Lambert divides by pi; mutant multiplies by pi",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "lambert_unit",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 232,
+          "n_vis": 20683,
+          "rmse": 70.32634551952735,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "da5578b32f50da9b2aa5650822fde2d762192a9c124862c7bdbb4ac5c8e5f479",
+          "diff_sha256": "daabd4fd19003b78d3a48e8e19ef3487b93a195bdf6304a113b9f79f5eec6ce1",
+          "diff_png": "mutants/mat-lambert-mul-pi/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 238,
+          "n_vis": 39692,
+          "rmse": 96.48251301059834,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "8e28edcbd6955c667307c5a078e41a75efa9075b06c19125ba331550cdf36665",
+          "diff_sha256": "29c21a604b3c2df83583dfe0423220b63f2cf4fdfe16bf8f9d01db16fa873f6f",
+          "diff_png": "mutants/mat-lambert-mul-pi/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 218,
+          "n_vis": 16909,
+          "rmse": 65.36181936387294,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "d9781f1dc78d0ed6d536717878f7f00def1e3bbb466a79069eb54bee3a9cb84b",
+          "diff_sha256": "3012b68082074e9867ad07f4829749e23e8f9310ff9df56ec52897b4ec8e6915",
+          "diff_png": "mutants/mat-lambert-mul-pi/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 240,
+          "n_vis": 55488,
+          "rmse": 106.52039727076793,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "9d585016e0797294a1d4f2ebb5b0ab327de2f14e0fb2e48cce315699bc5c6137",
+          "diff_sha256": "c86d6369eb8425dcba674a22dcd23df060664dcf83e4de120ee8b4c79f24d612",
+          "diff_png": "mutants/mat-lambert-mul-pi/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 216,
+          "n_vis": 42376,
+          "rmse": 101.32159510035635,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "11708f28071f78ae595475e1a64982a3d7b9971e24e6cf9960dd4407629754d8",
+          "diff_sha256": "b663d162836afa5241c65b2befc478ff93028c19ee8a06679bc93d31f1040180",
+          "diff_png": "mutants/mat-lambert-mul-pi/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 240,
+      "max_diff_scene": "grazing",
+      "reason": "caught by image oracle",
+      "source_sha256": "af8e2420bf8b8ecfe006619a85f630d1bfdb69516219faf2d4f670ce3a0135bd",
+      "sandbox": "mutants/mat-lambert-mul-pi",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "mat-lambert-no-pi",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "Lambert normalization by pi removed",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "lambert_unit",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 163,
+          "n_vis": 20683,
+          "rmse": 47.355608067592044,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "c7cb16573454bfdd5737f0c070d6352376f7a0db24ec11cde749717c568f6063",
+          "diff_sha256": "53ae7118ea1e96ce06af4ae64ed7bd2d7b01fb2e9d0c59f30a2ea0a6c4c88dd3",
+          "diff_png": "mutants/mat-lambert-no-pi/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 162,
+          "n_vis": 39691,
+          "rmse": 55.45710464610613,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "f30efee6d22e90b0b1e4b7dd3d7e00700b2b15c788c19c99e2a05da05407cd07",
+          "diff_sha256": "c3b6e14e0cc03bf410f9cf456b7d6b1558ee752a8e847d1965dd356ca3af3d4f",
+          "diff_png": "mutants/mat-lambert-no-pi/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 129,
+          "n_vis": 16909,
+          "rmse": 38.06586625326043,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "938b4664611830a47a54f649fa29af2743d405b514f939b6e77f6583cc4ff8a8",
+          "diff_sha256": "d482dccff66f51dd7f4e5484f775d31bf1a5302a07529a8b4a31b0028d47d63b",
+          "diff_png": "mutants/mat-lambert-no-pi/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 160,
+          "n_vis": 55488,
+          "rmse": 83.16163916834893,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "f9232a933fe821ecb0ac7cf217fe430529950d3b439b508d0191ee84b97b8e39",
+          "diff_sha256": "f5c08fca573b157e22f74ab986ea0b3bdca685fdcf386ade37b8dc702b1d844d",
+          "diff_png": "mutants/mat-lambert-no-pi/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 79,
+          "n_vis": 42355,
+          "rmse": 34.96258571921721,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "e1431943a212b184a5db5449fc852fec9af739c795fee6cf66eb02d65da9a55e",
+          "diff_sha256": "7a3524f72e9a566c203282046eced97b3758cf749cd166a746d04f9a92680db3",
+          "diff_png": "mutants/mat-lambert-no-pi/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 163,
+      "max_diff_scene": "grid",
+      "reason": "caught by image oracle",
+      "source_sha256": "af8fd564079093c3e169e737d24ef469d692546be01e6ea4d8225194ac3d80a4",
+      "sandbox": "mutants/mat-lambert-no-pi",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "mat-lambert-slightly-detuned",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect-subthreshold",
+      "title": "pi replaced by 3.16 (~0.6% dimming); below the measured 8-bit sensitivity floor",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "lambert_unit",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 1,
+          "n_vis": 0,
+          "rmse": 0.2920904659138634,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "3bb7f765fafb3f73873cea66f0c8c153d2225511478932b7c1732965d644ce73",
+          "diff_sha256": "fa88f0ee8817b5b08df853f98d36bbf25aa892361e4e2abaa82b2373dfc2c4d9",
+          "diff_png": "mutants/mat-lambert-slightly-detuned/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 1,
+          "n_vis": 0,
+          "rmse": 0.3710497963735985,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "b8f555c519e76ea90897597f7953fd6feee58189710f84fe8e13a7091bd227e8",
+          "diff_sha256": "7c59a3f90e1e63596cd8d58135c4946e5fcb0395bfd441a56a135a2e4a708c31",
+          "diff_png": "mutants/mat-lambert-slightly-detuned/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 1,
+          "n_vis": 0,
+          "rmse": 0.24876430723790655,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "7d35f783da670f11b436d949ea7ecaecf35e668485767b577d8bd5897cc82daa",
+          "diff_sha256": "d1a43a0c87e82f06f82bbebbbda1e4897b380e9ea2bbac70d2d2ee2f88a56f8e",
+          "diff_png": "mutants/mat-lambert-slightly-detuned/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 1,
+          "n_vis": 0,
+          "rmse": 0.499752542931666,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "7feaf05da6b4128d18922b3b6186bc3d77863771955d0fe4aa2a370a49f9a7fe",
+          "diff_sha256": "75b5aca977ff9dad7d0151091b02d5fe3315756762dde6f01869c3aa4cae27ac",
+          "diff_png": "mutants/mat-lambert-slightly-detuned/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 1,
+          "n_vis": 0,
+          "rmse": 0.2930325162086207,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "9d64e92be786abf588eaadcfbe5f40ef1394fed28c4caece10d39fbf0aa6513c",
+          "diff_sha256": "e1edd822b8740414503cd0dfc33dc536649ae1b94a7042efcd6480671eb0809b",
+          "diff_png": "mutants/mat-lambert-slightly-detuned/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": false,
+      "caught_bitwise": true,
+      "survived": true,
+      "max_diff": 1,
+      "max_diff_scene": "grid",
+      "reason": "below the measured sensitivity floor, as expected",
+      "source_sha256": "4179ad803cbb74ace866df0b8a046a164b99eb0b56a8920cbdaebcf2198894d9",
+      "sandbox": "mutants/mat-lambert-slightly-detuned",
+      "expected": "survive",
+      "as_expected": true
+    },
+    {
+      "id": "mat-ggx-denom-no-one",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "GGX denominator loses the +1 constant term",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "ggx_peak",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 77,
+          "n_vis": 16357,
+          "rmse": 5.854382039336005,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "317d05e008549ca2c4999313e28e8547ab49653b45d52f99db56a5bfd0bdf62c",
+          "diff_sha256": "f4b00f6d4577c516fb295d92151fb92357d20b24f6846d204403f90afe696099",
+          "diff_png": "mutants/mat-ggx-denom-no-one/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 200,
+          "n_vis": 39198,
+          "rmse": 82.54568395280344,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "57d1b92d5e5422f0af5d9dd6576070e27856990e21c56ff06559d39fb21fbc71",
+          "diff_sha256": "1c8a3119daafaecb4f060c2a3345598a56ceed1acc8c0d76ad3e20d578d8aece",
+          "diff_png": "mutants/mat-ggx-denom-no-one/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 107,
+          "n_vis": 9412,
+          "rmse": 15.329067426289253,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "1b89cd51eacf20e26affd0fa9fb2f137b7da97314a272b1757f3d00f54ca1e19",
+          "diff_sha256": "0027c74e4b84e65321b6f1a5610fd7c947046bcec617447341d810971c219f79",
+          "diff_png": "mutants/mat-ggx-denom-no-one/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 142,
+          "n_vis": 45471,
+          "rmse": 46.40348060385964,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "294ffe1e6356f85b84e57729a2b637029dbd6d6ce2f0a1706f66e0d25888502d",
+          "diff_sha256": "adbe82987c80eab5f6e28f97688bb9e29160f4f351222313e86ec92b2efdafd0",
+          "diff_png": "mutants/mat-ggx-denom-no-one/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 237,
+          "n_vis": 41906,
+          "rmse": 94.55532983024042,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "d4eaba4ecb8292d7b04443223b8ec3b626484f694363a76c666a67069a2654e8",
+          "diff_sha256": "f5f51118c2233cec9bd78f3bde7007c4e39af919fb1de6b32c049ea1bd35167e",
+          "diff_png": "mutants/mat-ggx-denom-no-one/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 237,
+      "max_diff_scene": "warm",
+      "reason": "caught by image oracle",
+      "source_sha256": "a0c8923084d704931e57a74e7e51c9eb44e6bc7a9abb3e52d254f9a28b58aad2",
+      "sandbox": "mutants/mat-ggx-denom-no-one",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "mat-ggx-a-not-squared",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "GGX alpha squared term replaced by alpha",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 66,
+          "n_vis": 3401,
+          "rmse": 0.7776751544400357,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "4d6dc26c9e118b7b5332b6a82a333d4ddf6512bb56aa406cc816dd8ff1a2755f",
+          "diff_sha256": "104551ac6b8b2bfdbf2c49abc67700fd8df82a38b4d69fc13755bd1239f06f28",
+          "diff_png": "mutants/mat-ggx-a-not-squared/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 52,
+          "n_vis": 281,
+          "rmse": 0.7973371481235386,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "ff4859129abc6ef9d4e85c550912f35e28c2bfd57b027f9c088bae7d6300c554",
+          "diff_sha256": "596683673c8e2115daed86db282139bd87a1085ab6c04d3ece2fedf53f7d718a",
+          "diff_png": "mutants/mat-ggx-a-not-squared/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 5,
+          "n_vis": 1031,
+          "rmse": 0.5488901364976825,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "57f26da96c17d4f84182f68a0c92fdc3b3b344d28ab262cd30149e7c02727219",
+          "diff_sha256": "e0d584e5a5950a25a9abcbaae1540936bcd15b1aa7dbaa4441d42b9f1f0fa523",
+          "diff_png": "mutants/mat-ggx-a-not-squared/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 44,
+          "n_vis": 30,
+          "rmse": 0.728252403016976,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "702957501e5e4ae7c6e6ec45a0c813738f488398ad17e738bd16614b60ef78e2",
+          "diff_sha256": "06d3b02bc9e918a38ee3bedfb3afc9346fd4eb49dd6b948c9eb7c34834baad23",
+          "diff_png": "mutants/mat-ggx-a-not-squared/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 69,
+          "n_vis": 18179,
+          "rmse": 2.2482410176871856,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "8d77ab102eb906f192e0d498028f72097d46b36c052bde64a3701fca15f9f054",
+          "diff_sha256": "8f6921d52bebf345434c144616ad781d2abb9b54790d967436adca1a9e307fda",
+          "diff_png": "mutants/mat-ggx-a-not-squared/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 69,
+      "max_diff_scene": "warm",
+      "reason": "caught by image oracle",
+      "source_sha256": "c7865f451bc1ae40156388ecbfaa02b3576a250e4c190a0f93d3edb6b6d3c8e8",
+      "sandbox": "mutants/mat-ggx-a-not-squared",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "mat-ggx-no-pi",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "GGX normalization by pi removed",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 47,
+          "n_vis": 19339,
+          "rmse": 4.803271725692118,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "2ca14bd950034968d346241d57f8d22d0df9603b370e5db4bc5ac26bd1de2ee2",
+          "diff_sha256": "4d1cd77bfdea4d8411914c6b9ccef2ee442cfaf7cff4eef59c68acacb3367000",
+          "diff_png": "mutants/mat-ggx-no-pi/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 73,
+          "n_vis": 38897,
+          "rmse": 17.045892660615408,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "7da76cf04037d08c3f18cc7c7ff6f0486d37e8590586fccb65fb1ed662e0b9e7",
+          "diff_sha256": "ba2ce8fb7bf434a8c40abcf71d2ae6c4282bbef83fd6e7f4e1f37b4c473bfe54",
+          "diff_png": "mutants/mat-ggx-no-pi/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 28,
+          "n_vis": 16239,
+          "rmse": 5.700825735145743,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "edaf603bdec34c4676d28daa3a8bdff0a3652c6540dd27e699869e877400334d",
+          "diff_sha256": "7957fa875a777fbff0421bc5b77021f5440d1e90e5e0ffbee2938c568eef0b84",
+          "diff_png": "mutants/mat-ggx-no-pi/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 45,
+          "n_vis": 52438,
+          "rmse": 12.869042412089824,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "8bd1dc9fc36972b7166754149c9263e0c356d7f9721dd7d00c0646fc908d002c",
+          "diff_sha256": "d62521bd5f59ffe1a545ca4f8e8d431a01953792f6f03b19b31ab1bb9ca47b8e",
+          "diff_png": "mutants/mat-ggx-no-pi/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 93,
+          "n_vis": 41241,
+          "rmse": 25.42746867453472,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "32465dd6899f2beaee0aede84068da842f5f06053e005beab7a4795f609db9be",
+          "diff_sha256": "ad6e8488e80546c0719ef8fe58cf606bbf1155965a46e9d3ef524830c178923d",
+          "diff_png": "mutants/mat-ggx-no-pi/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 93,
+      "max_diff_scene": "warm",
+      "reason": "caught by image oracle",
+      "source_sha256": "2f69795e552bb3b5b96cd4fed77daa69e68ff1616ee48782b1e2d747d1165102",
+      "sandbox": "mutants/mat-ggx-no-pi",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "mat-ggx-fabs",
+      "module": "material",
+      "operator": "equivalent",
+      "kind": "equivalent",
+      "title": "GGX takes |nh|; distribution already even in nh",
+      "equivalence_note": "ggx_ndf is even in nh (only nh*nh appears), so |nh| changes nothing",
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "0b66a0f25c2f9e6c9fb2b78183274e8e60e39c35fbd03fb289a93a0efe2849eb",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-ggx-fabs/diff_grid.png",
+          "ref_differs": false
+        },
+        "rough": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "19b117279f771abb1b793977886c9130463732bd802f61c09c7f423f1a9940ca",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-ggx-fabs/diff_rough.png",
+          "ref_differs": false
+        },
+        "occlude": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c96bd0f07f43bf506862516039e5ef8e7c4e0c86fe6cccd87a3491ace850fb00",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-ggx-fabs/diff_occlude.png",
+          "ref_differs": false
+        },
+        "grazing": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c38a7fe584ccc5606f54cdef0a83993f00a0769716356543a2fb869d269c26b2",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-ggx-fabs/diff_grazing.png",
+          "ref_differs": false
+        },
+        "warm": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-ggx-fabs/diff_warm.png",
+          "ref_differs": false
+        }
+      },
+      "caught": false,
+      "caught_bitwise": false,
+      "survived": true,
+      "max_diff": 0,
+      "max_diff_scene": null,
+      "reason": "equivalent mutant: visually identical, as expected",
+      "source_sha256": "d0664c75f3ff2983d2fc14f739692c8f641d346b43bc0b9301485cdadeace9af",
+      "sandbox": "mutants/mat-ggx-fabs",
+      "expected": "survive",
+      "as_expected": true
+    },
+    {
+      "id": "mat-pdf-no-pi",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "cosine pdf normalization by pi removed",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "pdf_half",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 72,
+          "n_vis": 20669,
+          "rmse": 15.704165146590535,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "9d7fef9486e5f485f1aa7e117eaa933275c970dc5636aac2d2ff8e8e9b1ebd57",
+          "diff_sha256": "b41c702a9dec972b10bd18576af2dc3cb9df0be97241c35d945ee435e9581a59",
+          "diff_png": "mutants/mat-pdf-no-pi/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 77,
+          "n_vis": 39632,
+          "rmse": 18.1759064805277,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "88067e7275ee2368bb1515e25e2e1f01becadb607ec1b1ffb482da70f739fff1",
+          "diff_sha256": "00758af375b50fb1a1074aba671ee74895304d68b6eb471de7fd0d4a121474e6",
+          "diff_png": "mutants/mat-pdf-no-pi/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 48,
+          "n_vis": 16889,
+          "rmse": 12.607251344299174,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "7b344d167115c09e3e47bed33a4906e5c3ff09f106017dca6f24e2ddba1d994f",
+          "diff_sha256": "3f199654e8b9878fa020093b099a7ebb3f3a618cd188c2b1e060d0b3491e6b47",
+          "diff_png": "mutants/mat-pdf-no-pi/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 68,
+          "n_vis": 55453,
+          "rmse": 27.548117940856383,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "ee058326b7ec77c3c1ecd29a346e079b6b93aee81cc828239e6f440c48aecc18",
+          "diff_sha256": "18af9aaf753e3c7ab69b8deff887069213c3ae103e0e6e5a21a0ee1c543d39c4",
+          "diff_png": "mutants/mat-pdf-no-pi/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 33,
+          "n_vis": 42109,
+          "rmse": 9.207345110999997,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "ed4fc7fcb10de8611f25f6ad45d3672578ae0fac7d9d864670aff544370c3a6c",
+          "diff_sha256": "adec465ffbdfaecab24e10610303089e58b55dbeec5306fcd0987452857d42cb",
+          "diff_png": "mutants/mat-pdf-no-pi/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 77,
+      "max_diff_scene": "rough",
+      "reason": "caught by image oracle",
+      "source_sha256": "12a75599751e98187ccdf28e566c4d6b48b2af648553a02900aada2c72abf84c",
+      "sandbox": "mutants/mat-pdf-no-pi",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "mat-pdf-sine",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "pdf uses sin instead of cos, breaking the estimator weight",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "pdf_half",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 172,
+          "n_vis": 19481,
+          "rmse": 13.664604455693388,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "d9113c5d4e175ceaabd2e78c0b9bc7c65bb9b619ed35e4627e1adc855f49e9bd",
+          "diff_sha256": "47fafa5ace0f572ab81b42e500d6be0ad903e868c4243d25913cfb3c655721f2",
+          "diff_png": "mutants/mat-pdf-sine/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 195,
+          "n_vis": 37097,
+          "rmse": 16.76990395975613,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "01f8138a8c8d226a2bde3d61abd23aa71aeb593a203de387a58dcc3e51d35804",
+          "diff_sha256": "77ebe9c7f1a89ac0dc87278ba5704c4803e599dda7acadc5742cf9e984cb0056",
+          "diff_png": "mutants/mat-pdf-sine/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 152,
+          "n_vis": 15791,
+          "rmse": 11.37907760400884,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "185e7b2c6eb6ce9c0f93525863aa8784adcc5b19e3aedf0c18aa3aec4da74411",
+          "diff_sha256": "69d203e1602e958ba289dd4cfa015773fdc2885813e3d34e2e43112142d47a86",
+          "diff_png": "mutants/mat-pdf-sine/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 158,
+          "n_vis": 52976,
+          "rmse": 23.999043040093863,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "1f31dc2b0fe86453762821b5a4f619108d45240ec064edf0df814d4b1dc86e6c",
+          "diff_sha256": "0c7d2c354bbffba1b4f5b45d338784fee9bee5aaa417bbd7052fed28c974164a",
+          "diff_png": "mutants/mat-pdf-sine/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 166,
+          "n_vis": 37049,
+          "rmse": 10.53323979718491,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "7935774236fdb979260db08dfe9a60376785c6d857d663f33e23d8c0269e5f29",
+          "diff_sha256": "d466c1d40091500a6500944d528f178b9aad858b20947ba1f2c1310533d8ee10",
+          "diff_png": "mutants/mat-pdf-sine/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 195,
+      "max_diff_scene": "rough",
+      "reason": "caught by image oracle",
+      "source_sha256": "10f351cfbdbcd0aeecc38234fa40e0500415617241ba94ff6bc8bcaba289ce48",
+      "sandbox": "mutants/mat-pdf-sine",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "mat-sample-radial-u1",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "cosine sampler uses u1 instead of sqrt(u1) for the radius",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "mean_cos_close",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 36,
+          "n_vis": 4963,
+          "rmse": 1.1255534903869395,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "32a1bbf12d26703209dfc8570eaf60ab8ac9bf00cfbc9e184ec1ceb7de881638",
+          "diff_sha256": "458fd5d4c1c2f6c432f20f874e9cd2dde9314110cd1cab6f760bc23936e65155",
+          "diff_png": "mutants/mat-sample-radial-u1/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 37,
+          "n_vis": 6918,
+          "rmse": 1.1908049769192082,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "aeeeafff916934e34500774051c86ff6f8c2f92e52220ad2312b0ec151c85f19",
+          "diff_sha256": "c414161c6fcb2417b294b7d546c46c287c93c8107243994cca2b716e8bede4ba",
+          "diff_png": "mutants/mat-sample-radial-u1/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 19,
+          "n_vis": 3150,
+          "rmse": 0.7448025931599445,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "907fb3e3e407f1351153f74648ff9aa6617437455dc53eec0bf40310375453bc",
+          "diff_sha256": "f594ed5bc79318637dd53b379c9906937fa092e8178bd0609e9db18e05946a62",
+          "diff_png": "mutants/mat-sample-radial-u1/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 33,
+          "n_vis": 14066,
+          "rmse": 1.6443519176765864,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "f7ecd35b2c347a43006441dbf8a35b5fd79da081325367b406ed486c6ed823ce",
+          "diff_sha256": "f83a69f504b714099d1df5f28cb2e59a63d7c2db026ac5d3030a581e8bb35465",
+          "diff_png": "mutants/mat-sample-radial-u1/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 34,
+          "n_vis": 4618,
+          "rmse": 0.9515977061996548,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "4a90ddb46e9c8ce4e536cab8a77249261380253a7d1dc6b0ebd9a19098e9f4d5",
+          "diff_sha256": "8971f10e3d9133b5f2b4d7b23c5febba441f1b914898b362c5787049deb6ebd4",
+          "diff_png": "mutants/mat-sample-radial-u1/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 37,
+      "max_diff_scene": "rough",
+      "reason": "caught by image oracle",
+      "source_sha256": "45bc4a93feb74697b86ddb4ee21706e6e1ade686d68ac947d897cc3d9a41fb0d",
+      "sandbox": "mutants/mat-sample-radial-u1",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "mat-sample-z-u1",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "sampler z uses sqrt(u1) instead of sqrt(1-u1), collapsing to a cone",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "mean_cos_close",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 71,
+          "n_vis": 7760,
+          "rmse": 1.5511910186656217,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "c0c00b9c3bc73ab524112581453cbc89f25404b856a002ac5b0439f86faac6e7",
+          "diff_sha256": "9fc5388641b16b90b6f8b961dcaa2b269c6c9a2c1f20620f240b95001ea96884",
+          "diff_png": "mutants/mat-sample-z-u1/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 55,
+          "n_vis": 12131,
+          "rmse": 1.807523099975335,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "ddd348517fb3a27c9d36728d1006ff46928ccff23b1409184fba77e697cd5f67",
+          "diff_sha256": "0331e25d294a0afa2948d9abacb5c9514d46486a61d3fee305121ff2c6267a64",
+          "diff_png": "mutants/mat-sample-z-u1/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 19,
+          "n_vis": 5280,
+          "rmse": 1.049844978635735,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "67820ffa21b98369be4a3af8189212ed42f39a8fb4e0d73fff6a47b4d0f4ba62",
+          "diff_sha256": "0e9a35337f88c0774133ff678c75034aba8027844f65406ace69b69a32af831a",
+          "diff_png": "mutants/mat-sample-z-u1/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 74,
+          "n_vis": 17399,
+          "rmse": 1.863228092212843,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "713ae1a6a6ff0a7e7203956394d97df0b3ef3fd832d9b65f680482e44365e454",
+          "diff_sha256": "0856d6f2b9a1f1170bffe4b4cba459503993c4ff8b868cc056897c9fa70c8f33",
+          "diff_png": "mutants/mat-sample-z-u1/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 46,
+          "n_vis": 7420,
+          "rmse": 1.2626460999072984,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "2eb545b5f26d0bd0518f842130b200c91b29482707ff92c957263dc9d8ff0f84",
+          "diff_sha256": "ec69c08fc613ca20435ac038365ec6455868d290074f6bf03b7ed356748038be",
+          "diff_png": "mutants/mat-sample-z-u1/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 74,
+      "max_diff_scene": "grazing",
+      "reason": "caught by image oracle",
+      "source_sha256": "cacbac44bf8c3e65ac8827ce22ba6891aa636c3f81a47b13f6e15b25a4de6b9b",
+      "sandbox": "mutants/mat-sample-z-u1",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "mat-sample-phi-half",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "sampler azimuth spans pi instead of 2*pi",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 61,
+          "n_vis": 17760,
+          "rmse": 3.839555073146135,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "dca8f204208b1b801232a9be0976d8c84d6f3bedc28f6c03aec90d054c603cb8",
+          "diff_sha256": "f794025d84a2569132f56e6e84178495d9ff2eea081d216a8c4c6cea1575d75b",
+          "diff_png": "mutants/mat-sample-phi-half/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 66,
+          "n_vis": 30011,
+          "rmse": 5.086991938185736,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "a36e07478fda10448bc1dfec87e1c0bfcbaec96b5f34700b8eee8f6e18de59d6",
+          "diff_sha256": "3343385b7ac1d0acaa9a9cfa34e7650d22cd7d75fb77d6f1aabb0271a4316763",
+          "diff_png": "mutants/mat-sample-phi-half/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 37,
+          "n_vis": 14411,
+          "rmse": 3.2150720626535816,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "7ba6569d444676ffc05116a0a7d22f9176ef1cda4489af1206b64bd725165789",
+          "diff_sha256": "3e5e6ab4d3b00a1cef7fe3a2d6f8a76c28a55618b32b17bd9b508bc9f5fb04c2",
+          "diff_png": "mutants/mat-sample-phi-half/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 50,
+          "n_vis": 43564,
+          "rmse": 5.89661949999979,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "2dc194ef1b8ca16cd0ad768200c447371346a312cf8d30f9d08bc3a3a23256dc",
+          "diff_sha256": "fea1f80338dc1c95859390e50c0ec7fa3e35bb4d4f262dd51dfeaa24c6e808f3",
+          "diff_png": "mutants/mat-sample-phi-half/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 48,
+          "n_vis": 30369,
+          "rmse": 3.7545152215181004,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "c574ea481da4816d85438181e4f54d4c583bce78feb2597866c8f2f9f1d14578",
+          "diff_sha256": "27885eb00b40b522e5cf3563351816ea982bfc029dbb125474855a87848512a0",
+          "diff_png": "mutants/mat-sample-phi-half/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 66,
+      "max_diff_scene": "rough",
+      "reason": "caught by image oracle",
+      "source_sha256": "7a0daa96b5b734f9d4a377598a76f9125ce5ffd15a89d0910f449efdf80a594f",
+      "sandbox": "mutants/mat-sample-phi-half",
+      "expected": "caught",
+      "as_expected": true
+    },
+    {
+      "id": "mat-sample-no-normalize",
+      "module": "material",
+      "operator": "equivalent",
+      "kind": "equivalent",
+      "title": "cosine_sample returns v unnormalized; |v| = 1 by construction",
+      "equivalence_note": "r^2 + (1-u1) = 1 exactly, so the sample is already unit length",
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "0b66a0f25c2f9e6c9fb2b78183274e8e60e39c35fbd03fb289a93a0efe2849eb",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-sample-no-normalize/diff_grid.png",
+          "ref_differs": false
+        },
+        "rough": {
+          "max": 5,
+          "n_vis": 1,
+          "rmse": 0.018042195912175804,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "685141c0b7a9f75b97343f3e6279d0690c558bcf2c5d2f4236d685c994fbeedc",
+          "diff_sha256": "2b02e710ab09f9ed7a243afc53886b79abb8152c11886783ebf253b9ded98b2d",
+          "diff_png": "mutants/mat-sample-no-normalize/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c96bd0f07f43bf506862516039e5ef8e7c4e0c86fe6cccd87a3491ace850fb00",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-sample-no-normalize/diff_occlude.png",
+          "ref_differs": false
+        },
+        "grazing": {
+          "max": 1,
+          "n_vis": 0,
+          "rmse": 0.002946278254943948,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "8df87094f6f97094fe9a48fd7cb2935d089af3b645e37aae275649cb5e96fb69",
+          "diff_sha256": "c50639a9b1681c4e8cf49c951a457e4807c5c27e6d661f3ab7cb0821915859d6",
+          "diff_png": "mutants/mat-sample-no-normalize/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-sample-no-normalize/diff_warm.png",
+          "ref_differs": false
+        }
+      },
+      "caught": false,
+      "caught_bitwise": true,
+      "survived": true,
+      "max_diff": 5,
+      "max_diff_scene": "rough",
+      "reason": "equivalent mutant: visually identical, as expected",
+      "source_sha256": "4166d0c848211067575460f090fc45ef778f9cf9849415546c097df72d688028",
+      "sandbox": "mutants/mat-sample-no-normalize",
+      "expected": "survive",
+      "as_expected": true
+    },
+    {
+      "id": "mat-norm3-zero-guard",
+      "module": "material",
+      "operator": "equivalent",
+      "kind": "equivalent",
+      "title": "norm3 loses its zero-length guard; no zero vectors reach it",
+      "equivalence_note": "no zero-length vector reaches norm3 in these scenes (all inputs are ray directions or surface normals with |v|>0)",
+      "selftest": {
+        "rc": 0,
+        "caught": false,
+        "failing": []
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "0b66a0f25c2f9e6c9fb2b78183274e8e60e39c35fbd03fb289a93a0efe2849eb",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-norm3-zero-guard/diff_grid.png",
+          "ref_differs": false
+        },
+        "rough": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "19b117279f771abb1b793977886c9130463732bd802f61c09c7f423f1a9940ca",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-norm3-zero-guard/diff_rough.png",
+          "ref_differs": false
+        },
+        "occlude": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c96bd0f07f43bf506862516039e5ef8e7c4e0c86fe6cccd87a3491ace850fb00",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-norm3-zero-guard/diff_occlude.png",
+          "ref_differs": false
+        },
+        "grazing": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "c38a7fe584ccc5606f54cdef0a83993f00a0769716356543a2fb869d269c26b2",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-norm3-zero-guard/diff_grazing.png",
+          "ref_differs": false
+        },
+        "warm": {
+          "max": 0,
+          "n_vis": 0,
+          "rmse": 0.0,
+          "bitwise": false,
+          "status": "ok",
+          "frame_sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+          "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5",
+          "diff_png": "mutants/mat-norm3-zero-guard/diff_warm.png",
+          "ref_differs": false
+        }
+      },
+      "caught": false,
+      "caught_bitwise": false,
+      "survived": true,
+      "max_diff": 0,
+      "max_diff_scene": null,
+      "reason": "equivalent mutant: visually identical, as expected",
+      "source_sha256": "51bb9b051ae1efdb3359f065a6aacd0791c10b1b29d6c7977c52ade96e27a35c",
+      "sandbox": "mutants/mat-norm3-zero-guard",
+      "expected": "survive",
+      "as_expected": true
+    },
+    {
+      "id": "mat-sample-hemisphere-flip",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "sampler emits negative z (below the shading hemisphere)",
+      "equivalence_note": null,
+      "selftest": {
+        "rc": 1,
+        "caught": true,
+        "failing": [
+          "sample_z_nonneg",
+          "sample_hemisphere",
+          "mean_cos_close",
+          "all_ok"
+        ]
+      },
+      "build": {
+        "rc": 0,
+        "error": null
+      },
+      "scenes": {
+        "grid": {
+          "max": 232,
+          "n_vis": 20684,
+          "rmse": 70.05741085689809,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "804d46ecbbe7a794d0d75fe9095c680a3e98ee49bf2650953c3e532c0e5cda8d",
+          "diff_sha256": "ed794574072c5a145706bb30f717e96015047fd66b4ee5e0c99f2cc925d3fb2d",
+          "diff_png": "mutants/mat-sample-hemisphere-flip/diff_grid.png",
+          "ref_differs": true
+        },
+        "rough": {
+          "max": 255,
+          "n_vis": 39701,
+          "rmse": 98.50906029872328,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "e20505cdb1da5c4839ba833fd7a2becf8aabd58b3562c62bba37ee8b31a61773",
+          "diff_sha256": "2600c895cf096cfee8aeb57bb6a80c9633dc3a13deb73b838ed7028e9214956a",
+          "diff_png": "mutants/mat-sample-hemisphere-flip/diff_rough.png",
+          "ref_differs": true
+        },
+        "occlude": {
+          "max": 230,
+          "n_vis": 16910,
+          "rmse": 65.63554488692972,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "66f2dddc9b4387afd80f759295b7f14f69e2f5f01dceb03dcde65283968fd821",
+          "diff_sha256": "7c4591f0bcd1afadecd8805fc21a59551cd15e72ac27701a7ca587272470c8ed",
+          "diff_png": "mutants/mat-sample-hemisphere-flip/diff_occlude.png",
+          "ref_differs": true
+        },
+        "grazing": {
+          "max": 240,
+          "n_vis": 55491,
+          "rmse": 106.48530606607707,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "171a4c34640c387f5f509b3a99c2272807ea207b327b053ea95db260313626db",
+          "diff_sha256": "7d9b457f153ebb8741d40faef0d4283cb8f5a3b017c96f83412964cfc34bdf3a",
+          "diff_png": "mutants/mat-sample-hemisphere-flip/diff_grazing.png",
+          "ref_differs": true
+        },
+        "warm": {
+          "max": 255,
+          "n_vis": 42386,
+          "rmse": 117.38132204752594,
+          "bitwise": true,
+          "status": "ok",
+          "frame_sha256": "a73b6f55e7e55bf01915a57f2c4a77d3c2e30f8309ce76c07a44379ea68a7834",
+          "diff_sha256": "3df409664803007c82130af941c49a2d78391f6982b926b79348743da1ac578a",
+          "diff_png": "mutants/mat-sample-hemisphere-flip/diff_warm.png",
+          "ref_differs": true
+        }
+      },
+      "caught": true,
+      "caught_bitwise": true,
+      "survived": false,
+      "max_diff": 255,
+      "max_diff_scene": "rough",
+      "reason": "caught by image oracle",
+      "source_sha256": "4a7dd1bc0d5cc069972bf1a7356ade827a3a63e763b503ad9a9b2e83de60d4f6",
+      "sandbox": "mutants/mat-sample-hemisphere-flip",
+      "expected": "caught",
+      "as_expected": true
+    }
+  ],
+  "compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+}

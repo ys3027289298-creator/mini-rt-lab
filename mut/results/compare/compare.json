@@ -1,0 +1,58 @@
+{
+  "rev": "de9c470",
+  "config": {
+    "rev": "HEAD",
+    "width": 320,
+    "height": 240,
+    "spp": 16,
+    "seed": 1,
+    "scenes": "grid,rough,occlude,grazing,warm"
+  },
+  "scenes": {
+    "grid": {
+      "visible_pixels": 0,
+      "max_channel_delta": 0,
+      "identical_bytes": true,
+      "rev_frame_sha256": "0b66a0f25c2f9e6c9fb2b78183274e8e60e39c35fbd03fb289a93a0efe2849eb",
+      "worktree_frame_sha256": "0b66a0f25c2f9e6c9fb2b78183274e8e60e39c35fbd03fb289a93a0efe2849eb",
+      "visibly_different": false,
+      "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5"
+    },
+    "rough": {
+      "visible_pixels": 0,
+      "max_channel_delta": 0,
+      "identical_bytes": true,
+      "rev_frame_sha256": "19b117279f771abb1b793977886c9130463732bd802f61c09c7f423f1a9940ca",
+      "worktree_frame_sha256": "19b117279f771abb1b793977886c9130463732bd802f61c09c7f423f1a9940ca",
+      "visibly_different": false,
+      "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5"
+    },
+    "occlude": {
+      "visible_pixels": 0,
+      "max_channel_delta": 0,
+      "identical_bytes": true,
+      "rev_frame_sha256": "c96bd0f07f43bf506862516039e5ef8e7c4e0c86fe6cccd87a3491ace850fb00",
+      "worktree_frame_sha256": "c96bd0f07f43bf506862516039e5ef8e7c4e0c86fe6cccd87a3491ace850fb00",
+      "visibly_different": false,
+      "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5"
+    },
+    "grazing": {
+      "visible_pixels": 0,
+      "max_channel_delta": 0,
+      "identical_bytes": true,
+      "rev_frame_sha256": "c38a7fe584ccc5606f54cdef0a83993f00a0769716356543a2fb869d269c26b2",
+      "worktree_frame_sha256": "c38a7fe584ccc5606f54cdef0a83993f00a0769716356543a2fb869d269c26b2",
+      "visibly_different": false,
+      "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5"
+    },
+    "warm": {
+      "visible_pixels": 0,
+      "max_channel_delta": 0,
+      "identical_bytes": true,
+      "rev_frame_sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+      "worktree_frame_sha256": "703e2de28790474e60c537106c86dedfb9ed5c3e0475f4e89a4806540308e00d",
+      "visibly_different": false,
+      "diff_sha256": "e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5"
+    }
+  }
+}

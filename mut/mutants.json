@@ -1,0 +1,364 @@
+{
+  "root": "/home/ys/feedback/uidreczz28d2xjxr3sH",
+  "notes": [
+    "Each mutant is one textual patch against the pristine module source.",
+    "kind=defect     : a plausible bug; surviving it is a real gap in the image oracle.",
+    "kind=equivalent : changes code shape but provably preserves the rendered function;",
+    "                  surviving is the correct outcome and calibrates false positives.",
+    "kind=defect-subthreshold : a real defect whose photometric effect was",
+    "  measured (tools/sensitivity.py) to stay under the 8-bit visibility",
+    "  floor; survival is the expected, quantified outcome, not a pass."
+  ],
+  "mutants": [
+    {
+      "id": "bvh-slab-t0-origin",
+      "module": "bvh",
+      "operator": "boundary",
+      "kind": "defect",
+      "title": "slab entry starts at 1e-2, clipping hits near the ray origin",
+      "find": "    float t0 = 0.0f, t1 = tmax;",
+      "replace": "    float t0 = 1e-2f, t1 = tmax;",
+      "expected": "caught"
+    },
+    {
+      "id": "bvh-slab-no-swap",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "slab test drops the ta/tb swap for negative ray directions",
+      "find": "            if (ta > tb) { float tmp = ta; ta = tb; tb = tmp; }",
+      "replace": "            if (ta > tb) { ta = ta; tb = tb; }",
+      "expected": "caught"
+    },
+    {
+      "id": "bvh-slab-cull-inverted",
+      "module": "bvh",
+      "operator": "logical",
+      "kind": "defect",
+      "title": "slab rejection predicate inverted (t0 < t1)",
+      "find": "            if (t0 > t1) return 0;",
+      "replace": "            if (t0 < t1) return 0;",
+      "expected": "caught"
+    },
+    {
+      "id": "bvh-slab-t0-frozen",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "t0 never advances to the slab entry, so behind-origin boxes hit at t=0",
+      "find": "            if (ta > t0) t0 = ta;",
+      "replace": "            if (ta > t0) t0 = t0;",
+      "expected": "caught"
+    },
+    {
+      "id": "bvh-slab-t1-frozen",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "t1 never shrinks to the slab exit, keeping boxes the ray misses",
+      "find": "            if (tb < t1) t1 = tb;",
+      "replace": "            if (tb < t1) t1 = t1;",
+      "expected": "caught"
+    },
+    {
+      "id": "bvh-slab-tmin-is-t1",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "aabb_hit reports the exit parameter t1 instead of entry t0",
+      "find": "    if (tmin) *tmin = t0;",
+      "replace": "    if (tmin) *tmin = t1;",
+      "expected": "caught"
+    },
+    {
+      "id": "bvh-slab-mul-inv",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "slab distances multiply by d instead of the reciprocal",
+      "find": "            float inv = 1.0f / d[i];",
+      "replace": "            float inv = 1.0f * d[i];",
+      "expected": "caught"
+    },
+    {
+      "id": "bvh-slab-parallel-eps",
+      "module": "bvh",
+      "operator": "boundary",
+      "kind": "defect",
+      "title": "parallel threshold 1e-8 raised to 1e-1, misclassifying shallow rays",
+      "find": "        if (fabsf(d[i]) < 1e-8f) {",
+      "replace": "        if (fabsf(d[i]) < 1e-1f) {",
+      "expected": "caught"
+    },
+    {
+      "id": "bvh-split-widest-flipped",
+      "module": "bvh",
+      "operator": "algorithm",
+      "kind": "equivalent",
+      "title": "split picks narrowest instead of widest axis (tree shape only; same hits)",
+      "find": "    int axis = (w[0] > w[1]) ? (w[0] > w[2] ? 0 : 2) : (w[1] > w[2] ? 1 : 2);",
+      "replace": "    int axis = (w[0] < w[1]) ? (w[0] < w[2] ? 0 : 2) : (w[1] < w[2] ? 1 : 2);",
+      "expected": "survive",
+      "equivalence_note": "only changes which axis is cut, so the same set of boxes is partitioned differently; nearest-hit answers are identical (validated: tree path equals brute path)"
+    },
+    {
+      "id": "bvh-split-partition-disabled",
+      "module": "bvh",
+      "operator": "algorithm",
+      "kind": "equivalent",
+      "title": "centroid partition disabled; falls back to index-median split",
+      "find": "        if (v < c[axis]) {\n            Prim tmp = t->p[i]; t->p[i] = t->p[mid]; t->p[mid] = tmp;\n            mid++;\n        }",
+      "replace": "        if (0) {\n            Prim tmp = t->p[i]; t->p[i] = t->p[mid]; t->p[mid] = tmp;\n            mid++;\n        }",
+      "expected": "survive",
+      "equivalence_note": "falls back to the count/2 split; still a valid spatial partition, nearest-hit answers identical"
+    },
+    {
+      "id": "bvh-split-no-swap",
+      "module": "bvh",
+      "operator": "algorithm",
+      "kind": "defect",
+      "title": "partition counts left prims but never swaps them into place",
+      "find": "            Prim tmp = t->p[i]; t->p[i] = t->p[mid]; t->p[mid] = tmp;\n            mid++;",
+      "replace": "            Prim tmp = t->p[i]; t->p[i] = t->p[i]; t->p[mid] = tmp;\n            mid++;",
+      "expected": "caught"
+    },
+    {
+      "id": "bvh-leaf-threshold-1",
+      "module": "bvh",
+      "operator": "boundary",
+      "kind": "equivalent",
+      "title": "leaf capacity 2 -> 1; deeper tree, identical hits",
+      "find": "    if (count <= 2) {",
+      "replace": "    if (count <= 1) {",
+      "expected": "survive",
+      "equivalence_note": "tree depth only; the same boxes are tested, in a different grouping"
+    },
+    {
+      "id": "bvh-leaf-threshold-3",
+      "module": "bvh",
+      "operator": "boundary",
+      "kind": "equivalent",
+      "title": "leaf capacity 2 -> 3; shallower tree, identical hits",
+      "find": "    if (count <= 2) {",
+      "replace": "    if (count <= 3) {",
+      "expected": "survive",
+      "equivalence_note": "tree depth only; same boxes tested"
+    },
+    {
+      "id": "bvh-node-bounds-empty",
+      "module": "bvh",
+      "operator": "algorithm",
+      "kind": "equivalent",
+      "title": "internal node bounds never grown; empty boxes degenerate to accept-all, so the tree stops culling",
+      "find": "    for (int i = first; i < first + count; i++) aabb_grow(&n->box, &t->p[i].box);",
+      "replace": "    for (int i = first; i < first; i++) aabb_grow(&n->box, &t->p[i].box);",
+      "expected": "survive",
+      "equivalence_note": "an empty AABB (min=+1e30, max=-1e30) makes the slab test accept every ray, so traversal degenerates to testing all boxes: same hits, no culling"
+    },
+    {
+      "id": "bvh-grow-max-dropped",
+      "module": "bvh",
+      "operator": "algorithm",
+      "kind": "defect",
+      "title": "aabb_grow no longer expands maxima",
+      "find": "        if (o->max[i] > b->max[i]) b->max[i] = o->max[i];",
+      "replace": "        if (o->max[i] > b->max[i]) b->max[i] = b->max[i];",
+      "expected": "caught"
+    },
+    {
+      "id": "bvh-prim-id-constant",
+      "module": "bvh",
+      "operator": "dataflow",
+      "kind": "defect",
+      "title": "every primitive reports id 0, so all boxes alias primitive 0",
+      "find": "    p->id = t->nprim;",
+      "replace": "    p->id = 0;",
+      "expected": "caught"
+    },
+    {
+      "id": "bvh-centroid-yz-swap",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "equivalent",
+      "title": "split compares y centroids on the z axis and vice versa (tree shape only)",
+      "find": "        float v = (axis == 0) ? t->p[i].cx : (axis == 1 ? t->p[i].cy : t->p[i].cz);",
+      "replace": "        float v = (axis == 0) ? t->p[i].cx : (axis == 1 ? t->p[i].cz : t->p[i].cy);",
+      "expected": "survive",
+      "equivalence_note": "only reorders the partition of boxes between children; same hits"
+    },
+    {
+      "id": "bvh-node-count-not-reserved",
+      "module": "bvh",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "build reuses node slot 0 for every node instead of reserving",
+      "find": "    int ni = t->nnode++;",
+      "replace": "    int ni = t->nnode;",
+      "expected": "caught"
+    },
+    {
+      "id": "bvh-area-negative-clamped",
+      "module": "bvh",
+      "operator": "boundary",
+      "kind": "equivalent",
+      "title": "aabb_area guard loosened; area is unused by traversal",
+      "find": "    if (dx < 0 || dy < 0 || dz < 0) return 0.0f;",
+      "replace": "    if (dx < 0) return 0.0f;",
+      "expected": "survive",
+      "equivalence_note": "aabb_area is not called by traversal or by the renderer; no observable path"
+    },
+    {
+      "id": "mat-lambert-mul-pi",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "Lambert divides by pi; mutant multiplies by pi",
+      "find": "static float brdf_lambert(float albedo) { return albedo / 3.14159265f; }",
+      "replace": "static float brdf_lambert(float albedo) { return albedo * 3.14159265f; }",
+      "expected": "caught"
+    },
+    {
+      "id": "mat-lambert-no-pi",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "Lambert normalization by pi removed",
+      "find": "static float brdf_lambert(float albedo) { return albedo / 3.14159265f; }",
+      "replace": "static float brdf_lambert(float albedo) { return albedo; }",
+      "expected": "caught"
+    },
+    {
+      "id": "mat-lambert-slightly-detuned",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect-subthreshold",
+      "title": "pi replaced by 3.16 (~0.6% dimming); below the measured 8-bit sensitivity floor",
+      "find": "static float brdf_lambert(float albedo) { return albedo / 3.14159265f; }",
+      "replace": "static float brdf_lambert(float albedo) { return albedo / 3.16f; }",
+      "expected": "survive"
+    },
+    {
+      "id": "mat-ggx-denom-no-one",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "GGX denominator loses the +1 constant term",
+      "find": "    float d = nh * nh * (a2 - 1.0f) + 1.0f;",
+      "replace": "    float d = nh * nh * (a2 - 1.0f);",
+      "expected": "caught"
+    },
+    {
+      "id": "mat-ggx-a-not-squared",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "GGX alpha squared term replaced by alpha",
+      "find": "    float a2 = a * a;",
+      "replace": "    float a2 = a;",
+      "expected": "caught"
+    },
+    {
+      "id": "mat-ggx-no-pi",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "GGX normalization by pi removed",
+      "find": "    return a2 / (3.14159265f * d * d);",
+      "replace": "    return a2 / (d * d);",
+      "expected": "caught"
+    },
+    {
+      "id": "mat-ggx-fabs",
+      "module": "material",
+      "operator": "equivalent",
+      "kind": "equivalent",
+      "title": "GGX takes |nh|; distribution already even in nh",
+      "find": "static float ggx_ndf(float nh, float rough) {\n    float a = rough * rough;",
+      "replace": "static float ggx_ndf(float nh, float rough) {\n    nh = fabsf(nh);\n    float a = rough * rough;",
+      "expected": "survive",
+      "equivalence_note": "ggx_ndf is even in nh (only nh*nh appears), so |nh| changes nothing"
+    },
+    {
+      "id": "mat-pdf-no-pi",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "cosine pdf normalization by pi removed",
+      "find": "static float cosine_pdf(float cos_theta) { return cos_theta / 3.14159265f; }",
+      "replace": "static float cosine_pdf(float cos_theta) { return cos_theta; }",
+      "expected": "caught"
+    },
+    {
+      "id": "mat-pdf-sine",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "pdf uses sin instead of cos, breaking the estimator weight",
+      "find": "static float cosine_pdf(float cos_theta) { return cos_theta / 3.14159265f; }",
+      "replace": "static float cosine_pdf(float cos_theta) { return sqrtf(1.0f - cos_theta * cos_theta) / 3.14159265f; }",
+      "expected": "caught"
+    },
+    {
+      "id": "mat-sample-radial-u1",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "cosine sampler uses u1 instead of sqrt(u1) for the radius",
+      "find": "    float r = sqrtf(u1);",
+      "replace": "    float r = u1;",
+      "expected": "caught"
+    },
+    {
+      "id": "mat-sample-z-u1",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "sampler z uses sqrt(u1) instead of sqrt(1-u1), collapsing to a cone",
+      "find": "    V3 v = { r * cosf(phi), r * sinf(phi), sqrtf(1.0f - u1 > 0 ? 1.0f - u1 : 0) };",
+      "replace": "    V3 v = { r * cosf(phi), r * sinf(phi), sqrtf(u1 > 0 ? u1 : 0) };",
+      "expected": "caught"
+    },
+    {
+      "id": "mat-sample-phi-half",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "sampler azimuth spans pi instead of 2*pi",
+      "find": "    float phi = 2.0f * 3.14159265f * u2;",
+      "replace": "    float phi = 3.14159265f * u2;",
+      "expected": "caught"
+    },
+    {
+      "id": "mat-sample-no-normalize",
+      "module": "material",
+      "operator": "equivalent",
+      "kind": "equivalent",
+      "title": "cosine_sample returns v unnormalized; |v| = 1 by construction",
+      "find": "    V3 v = { r * cosf(phi), r * sinf(phi), sqrtf(1.0f - u1 > 0 ? 1.0f - u1 : 0) };\n    return norm3(v);",
+      "replace": "    V3 v = { r * cosf(phi), r * sinf(phi), sqrtf(1.0f - u1 > 0 ? 1.0f - u1 : 0) };\n    return v;",
+      "expected": "survive",
+      "equivalence_note": "r^2 + (1-u1) = 1 exactly, so the sample is already unit length"
+    },
+    {
+      "id": "mat-norm3-zero-guard",
+      "module": "material",
+      "operator": "equivalent",
+      "kind": "equivalent",
+      "title": "norm3 loses its zero-length guard; no zero vectors reach it",
+      "find": "    if (l > 0) { r.x = a.x / l; r.y = a.y / l; r.z = a.z / l; }",
+      "replace": "    r.x = a.x / l; r.y = a.y / l; r.z = a.z / l;",
+      "expected": "survive",
+      "equivalence_note": "no zero-length vector reaches norm3 in these scenes (all inputs are ray directions or surface normals with |v|>0)"
+    },
+    {
+      "id": "mat-sample-hemisphere-flip",
+      "module": "material",
+      "operator": "arithmetic",
+      "kind": "defect",
+      "title": "sampler emits negative z (below the shading hemisphere)",
+      "find": "    V3 v = { r * cosf(phi), r * sinf(phi), sqrtf(1.0f - u1 > 0 ? 1.0f - u1 : 0) };",
+      "replace": "    V3 v = { r * cosf(phi), r * sinf(phi), -sqrtf(1.0f - u1 > 0 ? 1.0f - u1 : 0) };",
+      "expected": "caught"
+    }
+  ]
+}

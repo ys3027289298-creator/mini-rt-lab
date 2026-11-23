@@ -7,3 +7,4 @@
 | `bvh/` | 包围盒树构建、中位数分裂、最近命中 |
 | `sample/` | 分层与低差异采样、方差估计 |
 | `material/` | Lambert 与 GGX 求值、余弦加权采样 |
+| `mut/` | 变异测试：向 bvh/material 注入缺陷，以渲染结果判定是否被抓（见 `mut/REPORT.md`） |
