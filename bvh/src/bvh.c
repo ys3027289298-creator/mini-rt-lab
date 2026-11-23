@@ -4,6 +4,15 @@
 #include <string.h>
 #include <math.h>
 
+#ifdef RT_UNIFIED_RNG
+#include "rng.h"
+#include "scene.h"
+
+/* Unified stream for the geometry module. Off-switch compiles this out and
+   keeps every original code path untouched. */
+static Rng g_rng;
+#endif
+
 #define MAX_PRIM 32
 #define MAX_NODE 64
 
@@ -100,12 +109,24 @@ static void check(const char* name, int ok) {
 }
 
 int main(void) {
+#ifdef RT_UNIFIED_RNG
+    rng_seed(&g_rng, SCENE_SEED, STREAM_GEOMETRY);
+#endif
     Tree t;
     memset(&t, 0, sizeof(t));
     tree_add(&t, 1, 0, 0, 2, 1, 1);
     tree_add(&t, 5, 0, 0, 6, 1, 1);
     tree_add(&t, 3, 0, 0, 4, 1, 1);
     check("prim_count", t.nprim == 3);
+
+#ifdef RT_UNIFIED_RNG
+    /* Geometry-side randomness: Fisher-Yates permutation of the primitive
+       order drawn from the unified stream, before tree construction. */
+    for (int i = t.nprim - 1; i > 0; i--) {
+        int j = (int)(rng_next_u32(&g_rng) % (uint32_t)(i + 1));
+        Prim tmp = t.p[i]; t.p[i] = t.p[j]; t.p[j] = tmp;
+    }
+#endif
 
     int root = build(&t, 0, t.nprim);
     check("build_ok", root == 0 && t.nnode >= 2);
@@ -134,6 +155,10 @@ int main(void) {
     for (int i = 0; i < MAX_PRIM; i++) rc = tree_add(&big, (float)i, 0, 0, (float)i + 0.5f, 1, 1);
     check("capacity", rc == MAX_PRIM - 1 && big.nprim == MAX_PRIM);
     check("build_full", build(&big, 0, big.nprim) == 0);
+
+#ifdef RT_UNIFIED_RNG
+    printf("rng=unified\n");
+#endif
 
     printf("all_ok=%d\n", failures == 0);
     return failures == 0 ? 0 : 1;

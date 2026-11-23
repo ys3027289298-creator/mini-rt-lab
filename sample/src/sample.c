@@ -4,6 +4,15 @@
 #include <math.h>
 #include <string.h>
 
+#ifdef RT_UNIFIED_RNG
+#include "rng.h"
+#include "scene.h"
+
+/* Unified stream for the sampling module. Off-switch compiles this out and
+   keeps every original code path untouched. */
+static Rng g_rng;
+#endif
+
 #define N_MAX 256
 
 typedef struct { double mean; double var; int n; } Stat;
@@ -28,6 +37,10 @@ static Stat stratify(int strata, double (*f)(double)) {
     int n = 0;
     for (int i = 0; i < strata; i++) {
         double u = ((double)i + 0.5) / (double)strata;
+#ifdef RT_UNIFIED_RNG
+        /* jitter inside the stratum from the unified stream */
+        u = ((double)i + rng_next_double(&g_rng)) / (double)strata;
+#endif
         double v = f(u);
         sum += v; sum2 += v * v; n++;
     }
@@ -48,6 +61,9 @@ static void check(const char* name, int ok) {
 }
 
 int main(void) {
+#ifdef RT_UNIFIED_RNG
+    rng_seed(&g_rng, SCENE_SEED, STREAM_SAMPLE);
+#endif
     check("halton_in_unit", halton2(1, 2) >= 0.0 && halton2(1, 2) < 1.0);
     check("halton_first", fabs(halton2(0, 2)) < 1e-12);
 
@@ -63,6 +79,25 @@ int main(void) {
 
     check("halton_distinct", halton2(1, 2) != halton2(2, 2));
     check("halton_monotone_base", halton2(1, 2) > halton2(0, 2));
+
+#ifdef RT_UNIFIED_RNG
+    /* Unified stream must be reproducible: same (seed, stream) -> same draws.
+       Checked on two fresh RNGs so g_rng stays untouched for stratify(). */
+    Rng ra, rb;
+    rng_seed(&ra, SCENE_SEED, STREAM_SAMPLE);
+    rng_seed(&rb, SCENE_SEED, STREAM_SAMPLE);
+    int rep_ok = 1;
+    for (int i = 0; i < 4096; i++) {
+        if (rng_next_u32(&ra) != rng_next_u32(&rb)) { rep_ok = 0; break; }
+    }
+    check("rng_reproducible", rep_ok);
+
+    Rng rs, rm;
+    rng_seed(&rs, SCENE_SEED, STREAM_SAMPLE);
+    rng_seed(&rm, SCENE_SEED, STREAM_MATERIAL);
+    check("rng_streams_distinct", rng_next_u32(&rs) != rng_next_u32(&rm));
+    printf("rng=unified\n");
+#endif
 
     printf("all_ok=%d\n", failures == 0);
     return failures == 0 ? 0 : 1;

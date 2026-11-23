@@ -5,6 +5,15 @@
 #include <math.h>
 #include <string.h>
 
+#ifdef RT_UNIFIED_RNG
+#include "rng.h"
+#include "scene.h"
+
+/* Unified stream for the material module. Off-switch compiles this out and
+   keeps every original code path untouched. */
+static Rng g_rng;
+#endif
+
 typedef struct { float x, y, z; } V3;
 
 static float dot3(V3 a, V3 b) { return a.x * b.x + a.y * b.y + a.z * b.z; }
@@ -43,6 +52,9 @@ static void check(const char* name, int ok) {
 }
 
 int main(void) {
+#ifdef RT_UNIFIED_RNG
+    rng_seed(&g_rng, SCENE_SEED, STREAM_MATERIAL);
+#endif
     check("lambert_unit", fabsf(brdf_lambert(3.14159265f) - 1.0f) < 1e-4f);
     check("lambert_zero", brdf_lambert(0.0f) == 0.0f);
 
@@ -60,13 +72,27 @@ int main(void) {
 
     /* mean of cos over samples ~ 2/3 for cosine sampling */
     double acc = 0.0; int n = 512;
+#ifdef RT_UNIFIED_RNG
+    for (int i = 0; i < n; i++) {
+        /* uniform draws from the unified material stream */
+        float u1 = rng_next_float(&g_rng);
+        float u2 = rng_next_float(&g_rng);
+        V3 v = cosine_sample(u1, u2);
+        acc += v.z;
+    }
+#else
     for (int i = 0; i < n; i++) {
         float u1 = (float)((i % 16) + 0.5f) / 16.0f;
         float u2 = (float)((i / 16) + 0.5f) / 32.0f;
         V3 v = cosine_sample(u1, u2);
         acc += v.z;
     }
+#endif
     check("mean_cos_close", fabs(acc / n - 2.0 / 3.0) < 0.02);
+
+#ifdef RT_UNIFIED_RNG
+    printf("rng=unified\n");
+#endif
 
     printf("all_ok=%d\n", failures == 0);
     return failures == 0 ? 0 : 1;
