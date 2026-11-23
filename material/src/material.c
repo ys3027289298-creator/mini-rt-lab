@@ -42,7 +42,121 @@ static void check(const char* name, int ok) {
     if (!ok) failures++;
 }
 
-int main(void) {
+/* deterministic render: unit sphere at origin, orthographic camera,
+   Lambert + GGX specular. Only +,-,*,/ and sqrtf (IEEE correctly rounded),
+   so the image is bit-identical across compilers, optimization levels
+   and machines. */
+static int render(const char* path, int size, int strict) {
+    V3 l = { 0.5f, 0.7f, 1.0f };
+    V3 view = { 0.0f, 0.0f, 1.0f };
+    V3 h;
+    FILE* f;
+    int px, py;
+    l = norm3(l);
+    h = norm3((V3){ l.x + view.x, l.y + view.y, l.z + view.z });
+    f = fopen(path, "wb");
+    if (!f) { fprintf(stderr, "error: cannot open '%s' for writing\n", path); return 2; }
+    fprintf(f, "P6\n%d %d\n255\n", size, size);
+    for (py = 0; py < size; py++) {
+        for (px = 0; px < size; px++) {
+            float u = ((float)px + 0.5f) / (float)size * 2.4f - 1.2f;
+            float v = 1.2f - ((float)py + 0.5f) / (float)size * 2.4f;
+            unsigned char rgb[3] = { 12, 12, 16 };
+            float r2 = u * u + v * v;
+            if (r2 <= 1.0f) {
+                V3 n = { u, v, sqrtf(1.0f - r2) };
+                float ndl = dot3(n, l); if (ndl < 0.0f) ndl = 0.0f;
+                float nh = dot3(n, h); if (nh < 0.0f) nh = 0.0f;
+                float dif = brdf_lambert(0.8f) * ndl;
+                float sp = ggx_ndf(nh, 0.35f) * ndl * 0.08f;
+                float cr = dif * 1.00f + sp;
+                float cg = dif * 0.85f + sp;
+                float cb = dif * 0.70f + sp;
+                if (strict && !(cr >= 0.0f && cg >= 0.0f && cb >= 0.0f &&
+                                cr < 10.0f && cg < 10.0f && cb < 10.0f)) {
+                    fprintf(stderr, "error: strict check failed at pixel (%d,%d): color out of range\n", px, py);
+                    fclose(f);
+                    return 3;
+                }
+                if (cr > 1.0f) cr = 1.0f;
+                if (cg > 1.0f) cg = 1.0f;
+                if (cb > 1.0f) cb = 1.0f;
+                rgb[0] = (unsigned char)(cr * 255.0f);
+                rgb[1] = (unsigned char)(cg * 255.0f);
+                rgb[2] = (unsigned char)(cb * 255.0f);
+            }
+            fwrite(rgb, 1, 3, f);
+        }
+    }
+    if (fclose(f) != 0) { fprintf(stderr, "error: failed writing '%s'\n", path); return 2; }
+    return 0;
+}
+
+static void usage(const char* prog) {
+    fprintf(stderr,
+        "usage: %s                  run self-tests\n"
+        "       %s render OUT.ppm [--size N] [--strict|--no-strict]\n"
+        "  N: image width/height in pixels, integer 1..1024 (default 128)\n",
+        prog, prog);
+}
+
+static int parse_size(const char* s, int* out) {
+    long v = 0;
+    const char* p;
+    if (!s || !*s) return -1;
+    for (p = s; *p; p++) {
+        if (*p < '0' || *p > '9') return -1;
+        v = v * 10 + (*p - '0');
+        if (v > 1024) return -1;
+    }
+    if (v < 1) return -1;
+    *out = (int)v;
+    return 0;
+}
+
+static int render_main(int argc, char** argv) {
+    const char* out = NULL;
+    int size = 128;
+    int strict = 1;
+    int i;
+    for (i = 0; i < argc; i++) {
+        if (strcmp(argv[i], "--size") == 0) {
+            if (i + 1 >= argc) {
+                fprintf(stderr, "error: --size requires a value\n");
+                return 2;
+            }
+            if (parse_size(argv[++i], &size) != 0) {
+                fprintf(stderr, "error: invalid --size '%s': expected integer 1..1024\n", argv[i]);
+                return 2;
+            }
+        } else if (strcmp(argv[i], "--strict") == 0) {
+            strict = 1;
+        } else if (strcmp(argv[i], "--no-strict") == 0) {
+            strict = 0;
+        } else if (argv[i][0] == '-') {
+            fprintf(stderr, "error: unknown option '%s'\n", argv[i]);
+            return 2;
+        } else if (!out) {
+            out = argv[i];
+        } else {
+            fprintf(stderr, "error: unexpected argument '%s'\n", argv[i]);
+            return 2;
+        }
+    }
+    if (!out) {
+        fprintf(stderr, "error: render requires an output path\n");
+        return 2;
+    }
+    return render(out, size, strict);
+}
+
+int main(int argc, char** argv) {
+    if (argc >= 2) {
+        if (strcmp(argv[1], "render") == 0) return render_main(argc - 2, argv + 2);
+        fprintf(stderr, "error: unknown command '%s'\n", argv[1]);
+        usage(argv[0]);
+        return 2;
+    }
     check("lambert_unit", fabsf(brdf_lambert(3.14159265f) - 1.0f) < 1e-4f);
     check("lambert_zero", brdf_lambert(0.0f) == 0.0f);
 

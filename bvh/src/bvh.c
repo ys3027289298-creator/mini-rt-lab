@@ -99,7 +99,156 @@ static void check(const char* name, int ok) {
     if (!ok) failures++;
 }
 
-int main(void) {
+/* nearest hit over the tree, iterative pre-order with a fixed stack */
+static int nearest_hit(const Tree* t, const float o[3], const float d[3], float* tbest, int* idbest) {
+    int stack[MAX_NODE];
+    int sp = 0;
+    float best = 1e30f;
+    int bestid = -1;
+    stack[sp++] = 0;
+    while (sp > 0) {
+        const Node* n = &t->n[stack[--sp]];
+        float tm;
+        if (!aabb_hit(&n->box, o, d, best, &tm)) continue;
+        if (n->left < 0) {
+            int i;
+            for (i = n->first; i < n->first + n->count; i++) {
+                float tp;
+                if (aabb_hit(&t->p[i].box, o, d, best, &tp)) { best = tp; bestid = t->p[i].id; }
+            }
+        } else {
+            stack[sp++] = n->left;
+            stack[sp++] = n->right;
+        }
+    }
+    *tbest = best;
+    *idbest = bestid;
+    return bestid >= 0;
+}
+
+/* deterministic scene: 24 boxes from a fixed LCG, no transcendentals */
+static void scene_fill(Tree* t) {
+    unsigned rng = 12345u;
+    int i, k;
+    for (i = 0; i < 24; i++) {
+        float c[3], h[3];
+        for (k = 0; k < 3; k++) {
+            rng = rng * 1664525u + 1013904223u;
+            c[k] = (float)(rng >> 8) * (1.0f / 16777216.0f) * 1.6f - 0.8f;
+            rng = rng * 1664525u + 1013904223u;
+            h[k] = 0.05f + (float)(rng >> 8) * (1.0f / 16777216.0f) * 0.2f;
+        }
+        tree_add(t, c[0] - h[0], c[1] - h[1], c[2] - h[2],
+                    c[0] + h[0], c[1] + h[1], c[2] + h[2]);
+    }
+}
+
+/* deterministic render: orthographic camera at z=3, nearest BVH hit shaded
+   by distance and tinted by prim id. Only +,-,*,/ and comparisons, so the
+   image is bit-identical across compilers, optimization levels and machines. */
+static int render(const char* path, int size, int strict) {
+    Tree t;
+    FILE* f;
+    int px, py;
+    memset(&t, 0, sizeof(t));
+    scene_fill(&t);
+    if (build(&t, 0, t.nprim) != 0) { fprintf(stderr, "error: scene build failed\n"); return 3; }
+    f = fopen(path, "wb");
+    if (!f) { fprintf(stderr, "error: cannot open '%s' for writing\n", path); return 2; }
+    fprintf(f, "P6\n%d %d\n255\n", size, size);
+    for (py = 0; py < size; py++) {
+        for (px = 0; px < size; px++) {
+            float u = ((float)px + 0.5f) / (float)size * 2.0f - 1.0f;
+            float v = 1.0f - ((float)py + 0.5f) / (float)size * 2.0f;
+            float o[3] = { u, v, 3.0f };
+            float d[3] = { 0.0f, 0.0f, -1.0f };
+            float best;
+            int id;
+            unsigned char rgb[3] = { 0, 0, 0 };
+            if (nearest_hit(&t, o, d, &best, &id)) {
+                float shade = 4.0f / (1.0f + best);
+                if (strict && !(shade >= 0.0f && shade <= 4.0f)) {
+                    fprintf(stderr, "error: strict check failed at pixel (%d,%d): shade out of range\n", px, py);
+                    fclose(f);
+                    return 3;
+                }
+                if (shade > 1.0f) shade = 1.0f;
+                rgb[0] = (unsigned char)(shade * 255.0f);
+                rgb[1] = (unsigned char)(shade * (float)(128 + (id * 37) % 128));
+                rgb[2] = (unsigned char)(shade * (float)(64 + (id * 91) % 192));
+            }
+            fwrite(rgb, 1, 3, f);
+        }
+    }
+    if (fclose(f) != 0) { fprintf(stderr, "error: failed writing '%s'\n", path); return 2; }
+    return 0;
+}
+
+static void usage(const char* prog) {
+    fprintf(stderr,
+        "usage: %s                  run self-tests\n"
+        "       %s render OUT.ppm [--size N] [--strict|--no-strict]\n"
+        "  N: image width/height in pixels, integer 1..1024 (default 128)\n",
+        prog, prog);
+}
+
+static int parse_size(const char* s, int* out) {
+    long v = 0;
+    const char* p;
+    if (!s || !*s) return -1;
+    for (p = s; *p; p++) {
+        if (*p < '0' || *p > '9') return -1;
+        v = v * 10 + (*p - '0');
+        if (v > 1024) return -1;
+    }
+    if (v < 1) return -1;
+    *out = (int)v;
+    return 0;
+}
+
+static int render_main(int argc, char** argv) {
+    const char* out = NULL;
+    int size = 128;
+    int strict = 1;
+    int i;
+    for (i = 0; i < argc; i++) {
+        if (strcmp(argv[i], "--size") == 0) {
+            if (i + 1 >= argc) {
+                fprintf(stderr, "error: --size requires a value\n");
+                return 2;
+            }
+            if (parse_size(argv[++i], &size) != 0) {
+                fprintf(stderr, "error: invalid --size '%s': expected integer 1..1024\n", argv[i]);
+                return 2;
+            }
+        } else if (strcmp(argv[i], "--strict") == 0) {
+            strict = 1;
+        } else if (strcmp(argv[i], "--no-strict") == 0) {
+            strict = 0;
+        } else if (argv[i][0] == '-') {
+            fprintf(stderr, "error: unknown option '%s'\n", argv[i]);
+            return 2;
+        } else if (!out) {
+            out = argv[i];
+        } else {
+            fprintf(stderr, "error: unexpected argument '%s'\n", argv[i]);
+            return 2;
+        }
+    }
+    if (!out) {
+        fprintf(stderr, "error: render requires an output path\n");
+        return 2;
+    }
+    return render(out, size, strict);
+}
+
+int main(int argc, char** argv) {
+    if (argc >= 2) {
+        if (strcmp(argv[1], "render") == 0) return render_main(argc - 2, argv + 2);
+        fprintf(stderr, "error: unknown command '%s'\n", argv[1]);
+        usage(argv[0]);
+        return 2;
+    }
     Tree t;
     memset(&t, 0, sizeof(t));
     tree_add(&t, 1, 0, 0, 2, 1, 1);

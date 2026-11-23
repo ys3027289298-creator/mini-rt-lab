@@ -1,5 +1,5 @@
 CC ?= gcc
-CFLAGS ?= -O2 -std=c11 -Wall -Wextra
+CFLAGS ?= -O2 -std=c11 -Wall -Wextra -Werror -ffp-contract=off
 
 all: bvh
 
@@ -9,5 +9,8 @@ bvh: src/bvh.c
 test: bvh
 	./bvh
 
+render: bvh
+	./bvh render bvh.ppm
+
 clean:
-	rm -f bvh
+	rm -f bvh bvh.ppm

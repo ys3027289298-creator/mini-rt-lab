@@ -1,5 +1,5 @@
 CC ?= gcc
-CFLAGS ?= -O2 -std=c11 -Wall -Wextra
+CFLAGS ?= -O2 -std=c11 -Wall -Wextra -Werror -ffp-contract=off
 
 all: sample
 
@@ -9,5 +9,8 @@ sample: src/sample.c
 test: sample
 	./sample
 
+render: sample
+	./sample render sample.ppm
+
 clean:
-	rm -f sample
+	rm -f sample sample.ppm
