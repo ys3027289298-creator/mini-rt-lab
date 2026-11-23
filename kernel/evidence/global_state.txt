@@ -1,0 +1,5 @@
+--- writable data symbols per object ---
+rt_impl_l.o    s_atten_state(d) s_material_state(d) s_sampling_state(d) 
+rt_impl_u.o    
+rt_rng_l.o     
+rt_rng_u.o     

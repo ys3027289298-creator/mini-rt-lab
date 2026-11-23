@@ -1,0 +1,35 @@
+### attenuation (site 0, param 1.7, 20000 items)
+-- before: legacy per-site RNG
+site=0 param=1.7 items=20000
+mean=0.49785201111733912 target=0.5 bias=-0.00214799 stderr=0.0020406 rmse=0.00296275
+verdict=PASS
+-- after: unified counter-based source
+site=0 param=1.7 items=20000
+mean=0.50013417578329611 target=0.5 bias=0.000134176 stderr=0.00204481 rmse=0.0020492
+verdict=PASS
+
+### material (site 1, param 8, 20000 items)
+-- before: legacy per-site RNG
+site=1 param=8 items=20000
+mean=0.66768852949690916 target=0.66666666666666663 bias=0.00102186 stderr=0.00059258 rmse=0.00118125
+verdict=PASS
+-- after: unified counter-based source
+site=1 param=8 items=20000
+mean=0.6665053926559551 target=0.66666666666666663 bias=-0.000161274 stderr=0.000585491 rmse=0.000607297
+verdict=PASS
+
+### sampling (site 2, param 16, 20000 items)
+-- before: legacy per-site RNG
+site=2 param=16 items=20000
+mean=0.33328651655279684 target=0.33333333333333331 bias=-4.68168e-05 stderr=3.6918e-05 rmse=5.96217e-05
+verdict=PASS
+-- after: unified counter-based source
+site=2 param=16 items=20000
+mean=0.33331002719604597 target=0.33333333333333331 bias=-2.33061e-05 stderr=3.66538e-05 rmse=4.34359e-05
+verdict=PASS
+
+### convergence (4x items)
+80k items: site=0 param=1.7 items=80000 mean=0.50169693435466356 target=0.5 bias=0.00169693 stderr=0.00102201 rmse=0.00198093 verdict=PASS 
+80k items: site=1 param=8 items=80000 mean=0.66642449329052178 target=0.66666666666666663 bias=-0.000242173 stderr=0.000294721 rmse=0.000381456 verdict=PASS 
+80k items: site=2 param=16 items=80000 mean=0.3333285499896973 target=0.33333333333333331 bias=-4.78334e-06 stderr=1.84002e-05 rmse=1.90118e-05 verdict=PASS 
+

@@ -1,0 +1,8 @@
+purity_same_key_same_draw=1
+domain_separation_distinct_keys=1
+uniform_in_half_open_unit=1
+uniform_mean=1
+bit_balance=1
+no_short_cycle=1
+draw_order_independent=1
+all_ok=1

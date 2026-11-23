@@ -1,0 +1,10 @@
+prim_count=1
+build_ok=1
+root_covers=1
+hit_box=1
+miss_box=1
+miss_parallel=1
+area_positive=1
+capacity=1
+build_full=1
+all_ok=1

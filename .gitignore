@@ -1,0 +1,6 @@
+# Build products. Tracked sources and the frozen evidence goldens are never
+# ignored; only regenerated binaries and per-run output are.
+/bvh/bvh
+/sample/sample
+/material/material
+/kernel/build/

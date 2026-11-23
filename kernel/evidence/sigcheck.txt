@@ -1,0 +1,7 @@
+sig_atten=1
+sig_mean_cos=1
+sig_strat=1
+sig_configure=1
+record_fields_t=1
+record_ptr_t=1
+all_ok=1

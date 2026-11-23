@@ -1,0 +1,12 @@
+scene_hash 95ce887092e4a8a2 items=256 threads=1 order=seq
+scene_hash 95ce887092e4a8a2 items=256 threads=2 order=seq
+scene_hash 95ce887092e4a8a2 items=256 threads=3 order=seq
+scene_hash 95ce887092e4a8a2 items=256 threads=4 order=seq
+scene_hash 95ce887092e4a8a2 items=256 threads=7 order=seq
+scene_hash 95ce887092e4a8a2 items=256 threads=8 order=seq
+scene_hash 95ce887092e4a8a2 items=256 threads=2 order=strided
+scene_hash 95ce887092e4a8a2 items=256 threads=3 order=strided
+scene_hash 95ce887092e4a8a2 items=256 threads=8 order=strided
+-- legacy path, for contrast
+scene_hash c4541511fc650094 items=256 threads=1 order=seq
+scene_hash f150cd99fd482f08 items=256 threads=3 order=strided

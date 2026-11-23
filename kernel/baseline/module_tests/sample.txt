@@ -1,0 +1,8 @@
+halton_in_unit=1
+halton_first=1
+quad_mean_close=1
+variance_drops=1
+const_exact=1
+halton_distinct=1
+halton_monotone_base=1
+all_ok=1

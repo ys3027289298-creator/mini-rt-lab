@@ -1,0 +1,12 @@
+T material_module_selftest_main
+T rt_atten_sample
+T rt_material_mean_cos
+T rt_rng_configure
+T rt_rng_key
+T rt_rng_mix64
+T rt_rng_u64
+T rt_rng_unit
+T rt_shim_cosine_sample
+T rt_shim_f_quad
+T rt_strat_quad
+T sample_module_selftest_main
