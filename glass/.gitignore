@@ -1,0 +1,4 @@
+*.o
+moire
+selftest
+out/*
