@@ -1,0 +1,10 @@
+# 各模块编译产物（make clean 可删）
+/bvh/bvh
+/material/material
+/sample/sample
+/pipeline/pipeline
+/pipeline/pipeline-buggy
+
+# Python
+__pycache__/
+*.pyc
