@@ -1,0 +1,16 @@
+CC ?= gcc
+CFLAGS ?= -O2 -std=c11 -Wall -Wextra
+
+all: dof
+
+dof: src/dof.c
+	$(CC) $(CFLAGS) $< -o $@ -lm
+
+test: dof
+	./dof test
+
+bokeh: dof
+	./dof bokeh ../artifacts
+
+clean:
+	rm -f dof
