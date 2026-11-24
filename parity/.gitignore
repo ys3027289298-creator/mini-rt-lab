@@ -1,0 +1,7 @@
+*.o
+*.a
+selftest
+pathtracer
+rasterizer
+diffimg
+out/*
